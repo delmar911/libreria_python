@@ -5,6 +5,11 @@
         <title>Listar Paciente</title>
         <meta charset="UTF-8">
         
+        <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -13,37 +18,49 @@
 
         <link rel="stylesheet" href="css/estilos.css">
         <script src="./js/producto.js"></script>
-   </head>
-
-    <body onload="listarproducto();">
-    
-   <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background-color: #9d7ed4;">
-        <div class="container pb-2">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
+  
+</head>
+<body onload="listarproducto();">
+   <!-- Brand Start (Inicio de marca) -->
+    <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
+        <div class="container p-4">
             <div class="d-flex align-items-center justify-content-center">
-                <a href="index.html" class="h1 text-white mb-0" style="font-size:  50px;  font-family: Roboto sans-serif ; text-decoration: none">SHOES <span class="text-dark"> STORE</span></a>
+                <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
+                -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
             </div>
         </div>
-    </div>     <!-- Navbar Start(Inicio de la barra de navegación) -->
-        <div class="container-fluid sticky-top">
-            <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
-                    <a href="index.html" class="navbar-brand d-lg-none">
-                        <h1 class="text-white m-0"> CLINICA <span class="text-dark"> SALUDVIVA</span></h1>
-                    </a>
-                    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                        <div class="navbar-nav" style="margin-left: 2%;">
+    </div>
+    <!-- Brand End -->
+
+
+    <!-- Navbar Start(Inicio de la barra de navegación) -->
+    <div class="container-fluid sticky-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
+                <a href="index.html" class="navbar-brand d-lg-none">
+                    <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
+                </a>
+
+<!--                 
+                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+
+                <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
+                    <div class="navbar-nav" style="margin-left: 2%;">
                             <a href="index.html" class="nav-item nav-link active">Home</a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
+
                                 <div class="dropdown-menu bg-light m-0">                                
                                     <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
                                     <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
                                 </div>
                             </div>
+
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Productos</a>
                                 <div class="dropdown-menu bg-light m-0">
@@ -51,6 +68,7 @@
                                     <a href="./productoLista.html" class="dropdown-item">Lista de productos</a>
                                 </div>
                             </div>
+                            
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Venta</a>
                                 <div class="dropdown-menu bg-light m-0">
