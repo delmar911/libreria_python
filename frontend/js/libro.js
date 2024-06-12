@@ -1,6 +1,6 @@
 //se almacena la url de la api
-let url="http://localhost:8082/api/v1/cliente/";
-function listarcliente() {
+let url="http://127.0.0.1:8000/libreria/api/v1/libros/";
+function listarLibros() {
   var busqueda = document.getElementById("buscar").value;
   var urlBusqueda = url;
   if (busqueda!=""){
@@ -13,8 +13,8 @@ function listarcliente() {
         type: "GET",
         success: function(result){//success: funcion que se ejecuta cusndo la peticion tiene exito
             console.log(result);
-            let cuerpoTablacliente = document.getElementById("cuerpoTablacliente");
-            cuerpoTablacliente.innerHTML="";
+            let cuerpoTablaLibros = document.getElementById("cuerpoTablaLibros");
+            cuerpoTablaLibros.innerHTML="";
             for (let i = 0; i < result.length; i++) {
                //se crea una etiqueta tr por cada registro
                 let trRegistro = document.createElement("tr");//fila por cada registro de la tabla
