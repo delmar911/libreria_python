@@ -11,8 +11,8 @@ class libro(models.Model):
     autor = models.CharField(max_length=60 )
     isbn = models.CharField(max_length=13)
     genero = models.CharField(max_length=50)
-    numero_disponible = models.IntegerField(max_length=3)
-    numero_ocupado = models.IntegerField(max_length=3 )
+    numero_disponible = models.IntegerField()
+    numero_ocupado = models.IntegerField()
    
     def __str__(self):
        return self.titulo
