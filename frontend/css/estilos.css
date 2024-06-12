@@ -12,6 +12,10 @@ body {
     background-color: var(--bs-body-bg);
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
+
+    height: 100vh;
+    width: 100vw;
+    background: url(/frontend/img/imagen-archivo-libros_69.jpg) no-repeat center/cover;
 }
 
 .btn {
@@ -118,7 +122,7 @@ body {
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-primary);
+    color: var(--bs-warning);
 }
 
 .navbar .dropdown-toggle::after {
