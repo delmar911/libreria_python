@@ -21,26 +21,20 @@ function listarLibros() {
                 let celdaId = document.createElement("td");
                 let celdaTipoDocumento = document.createElement("td");
                 let celdaNumeroDocumento = document.createElement("td");
-                let celdaNombres = document.createElement("td");
-                let celdaApellidos = document.createElement("td");
-                let celdaTelefono = document.createElement("td");
-                let celdaCorreo = document.createElement("td");
-                let celdaDireccion = document.createElement("td");
-                let celdaCiudad = document.createElement("td");
-                let celdaEstado = document.createElement("td");
-
-                //almacenamos en valor
+                let celdaisbn = document.createElement("td");
+                let celdagenero = document.createElement("td");
+                let celdanumero_ocupado = document.createElement("td");
+                let celdaNumero_disponible = document.createElement("td");
+                  //almacenamos en valor
                 
-                celdaId.innerText = result[i]["id_cliente"];
-                celdaTipoDocumento.innerText= result[i]["tipo_documento"];
-                celdaNumeroDocumento.innerText = result[i]["numero_documento"];
-                celdaNombres.innerText = result[i]["nombres"];
-                celdaApellidos.innerText = result[i]["apellidos"];
-                celdaTelefono.innerText = result[i]["telefono"];
-                celdaCorreo.innerText = result[i]["correo_electronico"];
-                celdaDireccion.innerText = result[i]["direccion"];
-                celdaCiudad.innerText = result[i]["ciudad"];
-                celdaEstado.innerText = result[i]["estado"];
+                celdaId.innerText = result[i]["id"];
+                celdaTipoDocumento.innerText= result[i]["titulo"];
+                celdaNumeroDocumento.innerText = result[i]["autor"];
+                celdaisbn.innerText = result[i]["isbn"];
+                celdagenero.innerText = result[i]["genero"];
+                celdanumero_ocupado.innerText = result[i]["numero_ocupado"];
+                celdaNumero_disponible.innerText = result[i]["numero_disponible"];
+               
                 
                 
                 //agregando a los td a su respectivo th y agregandolos a la fila
@@ -48,19 +42,17 @@ function listarLibros() {
                 trRegistro.appendChild(celdaId);
                 trRegistro.appendChild(celdaTipoDocumento);
                 trRegistro.appendChild(celdaNumeroDocumento);
-                trRegistro.appendChild(celdaNombres);
-                trRegistro.appendChild(celdaApellidos);
-                trRegistro.appendChild(celdaTelefono);
-                trRegistro.appendChild(celdaCorreo);
-                trRegistro.appendChild(celdaDireccion);
-                trRegistro.appendChild(celdaCiudad);
-                trRegistro.appendChild(celdaEstado);
+                trRegistro.appendChild(celdaisbn);
+                trRegistro.appendChild(celdagenero);
+                trRegistro.appendChild(celdanumero_ocupado);
+                trRegistro.appendChild(celdaNumero_disponible);
+                
                 // trRegistro.appendChild(celdaEditar);
 
                 //boton editar 
                 let celdaOpcion= document.createElement("td");
                 let botonEditarcliente= document.createElement("button");
-                botonEditarcliente.value=result[i]["id_cliente"];
+                botonEditarcliente.value=result[i]["id"];
                 botonEditarcliente.innerHTML="Editar"; 
 
                 botonEditarcliente.onclick=function(e){
@@ -72,14 +64,14 @@ function listarLibros() {
                 celdaOpcion.appendChild(botonEditarcliente); 
                 trRegistro.appendChild(celdaOpcion)
 
-                cuerpoTablacliente.appendChild(trRegistro);//se traen todos los registros
+                cuerpoTablaLibros.appendChild(trRegistro);//se traen todos los registros
 
                 //boton desahiblitar- la funcion de deshabilitar se encuentra abajo 
                 let botonDeshabilitarcliente= document.createElement("button");
                 botonDeshabilitarcliente.innerHTML="<i class='fa-solid fa-trash'></i>"; 
                 botonDeshabilitarcliente.className="btn btn-danger"; 
 
-                let clienteIdParaDeshabilitar= result[i]["id_cliente"]; 
+                let clienteIdParaDeshabilitar= result[i]["id"]; 
                 botonDeshabilitarcliente.onclick=function(){
                   deshabilitarcliente(clienteIdParaDeshabilitar);
                 }
@@ -93,124 +85,25 @@ function listarLibros() {
         }
     })
 }
-function estadofiltro() {
+function RegistrarLibros() {
+
+  let titulo = document.getElementById("titulo").value;
+  let autor = document.getElementById("autor").value;
+  let isbn = document.getElementById("isbn").value;
+  let genero = document.getElementById("genero").value;
+  let numero_disponible = document.getElementById("numero_disponible").value;
+  let numero_ocupado = document.getElementById("numero_ocupado").value;
   
-  var estadofiltro = document.getElementById("estadofiltro").value;
-  var urlBusqueda = url;
-  if (estadofiltro!=""){
-    urlBusqueda+="estadofiltro/"+estadofiltro; 
-   
-  }
-  
-    $.ajax({
-        url:urlBusqueda,
-        type: "GET",
-        success: function(result){//success: funcion que se ejecuta cusndo la peticion tiene exito
-            console.log(result);
-            let cuerpoTablacliente = document.getElementById("cuerpoTablacliente");
-            cuerpoTablacliente.innerHTML="";
-            for (let i = 0; i < result.length; i++) {
-               //se crea una etiqueta tr por cada registro
-                let trRegistro = document.createElement("tr");//fila por cada registro de la tabla
-                let celdaId = document.createElement("td");
-                let celdaTipoDocumento = document.createElement("td");
-                let celdaNumeroDocumento = document.createElement("td");
-                let celdaNombres = document.createElement("td");
-                let celdaApellidos = document.createElement("td");
-                let celdaTelefono = document.createElement("td");
-                let celdaCorreo = document.createElement("td");
-                let celdaDireccion = document.createElement("td");
-                let celdaCiudad = document.createElement("td");
-                let celdaEstado = document.createElement("td");
-
-                //almacenamos en valor
-                
-                celdaId.innerText = result[i]["id_cliente"];
-                celdaTipoDocumento.innerText= result[i]["tipo_documento"];
-                celdaNumeroDocumento.innerText = result[i]["numero_documento"];
-                celdaNombres.innerText = result[i]["nombres"];
-                celdaApellidos.innerText = result[i]["apellidos"];
-                celdaTelefono.innerText = result[i]["telefono"];
-                celdaCorreo.innerText = result[i]["correo_electronico"];
-                celdaDireccion.innerText = result[i]["direccion"];
-                celdaCiudad.innerText = result[i]["ciudad"];
-                celdaEstado.innerText = result[i]["estado"];
-                
-                
-                //agregando a los td a su respectivo th y agregandolos a la fila
-
-                trRegistro.appendChild(celdaId);
-                trRegistro.appendChild(celdaTipoDocumento);
-                trRegistro.appendChild(celdaNumeroDocumento);
-                trRegistro.appendChild(celdaNombres);
-                trRegistro.appendChild(celdaApellidos);
-                trRegistro.appendChild(celdaTelefono);
-                trRegistro.appendChild(celdaCorreo);
-                trRegistro.appendChild(celdaDireccion);
-                trRegistro.appendChild(celdaCiudad);
-                trRegistro.appendChild(celdaEstado);
-                // trRegistro.appendChild(celdaEditar);
-
-                //boton editar 
-                let celdaOpcion= document.createElement("td");
-                let botonEditarcliente= document.createElement("button");
-                botonEditarcliente.value=result[i]["id_cliente"];
-                botonEditarcliente.innerHTML="Editar"; 
-
-                botonEditarcliente.onclick=function(e){
-                    $('#exampleModal').modal('show');
-                    consultarclienteID(this.value); 
-                }
-                botonEditarcliente.className= "btn btn-primary"
-
-                celdaOpcion.appendChild(botonEditarcliente); 
-                trRegistro.appendChild(celdaOpcion)
-
-                cuerpoTablacliente.appendChild(trRegistro);//se traen todos los registros
-
-                //boton desahiblitar- la funcion de deshabilitar se encuentra abajo 
-                let botonDeshabilitarcliente= document.createElement("button");
-                botonDeshabilitarcliente.innerHTML="<i class='fa-solid fa-trash'></i>"; 
-                botonDeshabilitarcliente.className="btn btn-danger"; 
-
-                let clienteIdParaDeshabilitar= result[i]["id_cliente"]; 
-                botonDeshabilitarcliente.onclick=function(){
-                  deshabilitarcliente(clienteIdParaDeshabilitar);
-                }
-                celdaOpcion.appendChild(botonDeshabilitarcliente); 
-                trRegistro.appendChild(celdaOpcion)
-            }
-
-        },
-        error:function(error){
-            alert("Error en la peticion ${error}");
-        }
-    })
-}
-//que es Cors
-function Registrarcliente() {
-
-  let tipo_documento = document.getElementById("tipo_documento").value;
-  let numero_documento = document.getElementById("numero_documento").value;
-  let nombres = document.getElementById("nombres").value;
-  let apellidos = document.getElementById("apellidos").value;
-  let correo_electronico = document.getElementById("correo_electronico").value;
-  let telefono = document.getElementById("telefono").value;
-  let direccion = document.getElementById("direccion").value;
-  let ciudad = document.getElementById("ciudad").value;
-  let estado = document.getElementById("estado").value;
 
 
   let formData = {
-    "tipo_documento": tipo_documento,
-    "numero_documento": numero_documento,
-    "nombres": nombres,
-    "apellidos": apellidos,
-    "correo_electronico": correo_electronico,
-    "telefono": telefono,
-    "direccion": direccion,
-    "ciudad" : ciudad,
-    "estado": estado
+    "titulo": titulo,
+    "autor": autor,
+    "isbn": isbn,
+    "genero": genero,
+    "numero_disponible": numero_disponible,
+    "numero_ocupado": numero_ocupado,
+   
   };
 
   if(validarCampos()){
@@ -244,16 +137,15 @@ function Registrarcliente() {
 }
 
 function validarCampos() {
-  var numero_documento = document.getElementById("numero_documento"); 
-  var nombres = document.getElementById("nombres"); 
-  var apellidos = document.getElementById("apellidos"); 
-  var direccion=document.getElementById("direccion");
-  var telefono = document.getElementById("telefono"); 
-  var ciudad = document.getElementById("ciudad"); 
+  var autor = document.getElementById("autor"); 
+  var isbn = document.getElementById("isbn"); 
+  var genero = document.getElementById("genero"); 
+  var numero_ocupado = document.getElementById("numero_ocupado"); 
+ 
 
-  return validarNumeroDocumento(numero_documento) && validarNombreApellido(nombres) 
-         && validarNombreApellido(apellidos) &&  validarTelefono(telefono) && validarDireccionCiudad(direccion)
-         && validarDireccionCiudad(ciudad);
+  return validarNombreApellido(isbn) 
+         && validarNombreApellido(genero) 
+
 
 }
 
@@ -277,7 +169,7 @@ function validarNumeroDocumento(cuadroNumero){
 function validarNombreApellido(campo){
   var value=campo.value;
   var valido=true;
-  if(value.length<3 || value.length>30){
+  if(value.length<3 || value.length>60){
       valido=false;
   }
 
@@ -290,61 +182,45 @@ function validarNombreApellido(campo){
   return valido;
 }
 
-function validarTelefono(Numero) {
+// function validarnumero_ocupado(Numero) {
     
-  let valor = Numero.value;
-  let valido = true;
-  if (valor.length < 10 || valor.length >13) {
-      valido = false
-  }
+//   let valor = Numero.value;
+//   let valido = true;
+//   if (valor.length < 10 || valor.length >13) {
+//       valido = false
+//   }
 
-  if (valido) {
-      Numero.className = "form-control is-valid"
-  }
-  else{
-      Numero.className = "form-control is-invalid"
-  }
-  return valido;
-}
+//   if (valido) {
+//       Numero.className = "form-control is-valid"
+//   }
+//   else{
+//       Numero.className = "form-control is-invalid"
+//   }
+//   return valido;
+// }
 
 
-function validarDireccionCiudad(Direccion){
-  let valor = Direccion.value;
-  let valido = true;
-  if (valor.length <=0 || valor.length >45) {
-      valido = false
-  }
-  if (valido) {
-    Direccion.className = "form-control is-valid"
-  }
-  else{
-    Direccion.className = "form-control is-invalid"
-  }
-  return valido;
-}
 
 
 /*actualizar*/
-function updatecliente(){
-  var id_cliente=document.getElementById("id_cliente").value;
-  console.log(id_cliente);
+function updateLibro(){
+  var id=document.getElementById("id").value;
+  console.log(id);
   let formData = {
 
-      "tipo_documento" :  document.getElementById("tipo_documento").value,
-      "numero_documento" : document.getElementById("numero_documento").value,
-      "nombres" : document.getElementById("nombres").value,
-      "apellidos" : document.getElementById("apellidos").value,
-      "correo_electronico"  : document.getElementById("correo_electronico").value,
-      "telefono" : document.getElementById("telefono").value,
-      "direccion" : document.getElementById("direccion").value,
-      "ciudad" : document.getElementById("ciudad").value,
-      "estado" : document.getElementById("estado").value
+      "titulo" :  document.getElementById("titulo").value,
+      "autor" : document.getElementById("autor").value,
+      "isbn" : document.getElementById("isbn").value,
+      "genero" : document.getElementById("genero").value,
+      "numero_disponible"  : document.getElementById("numero_disponible").value,
+      "numero_ocupado" : document.getElementById("numero_ocupado").value,
+    
   };
 
 //Cuando estamos actualizando los datos, y lo hacemos correctamente Aparecerá la Alerta EXCELENTE *****
 if(validarCampos()){
   $.ajax({
-      url: url + id_cliente,
+      url: url + id,
       type: "PUT",
       data: formData,
       success: function(result) {
@@ -384,38 +260,32 @@ function consultarclienteID(id){
       type:"GET",
       success: function(result){
         console.log(result);
-        document.getElementById("id_cliente").value=result["id_cliente"];
-        document.getElementById("tipo_documento").value=result["tipo_documento"];
-        document.getElementById("numero_documento").value=result["numero_documento"];
-        document.getElementById("nombres").value=result["nombres"];
-        document.getElementById("apellidos").value=result["apellidos"];
-        document.getElementById("correo_electronico").value=result["correo_electronico"];
-        document.getElementById("telefono").value=result["telefono"];
-        document.getElementById("direccion").value=result["direccion"];
-        document.getElementById("ciudad").value=result["ciudad"];
-        document.getElementById("estado").value=result["estado"];
+        document.getElementById("id").value=result["id"];
+        document.getElementById("titulo").value=result["titulo"];
+        document.getElementById("autor").value=result["autor"];
+        document.getElementById("isbn").value=result["isbn"];
+        document.getElementById("genero").value=result["genero"];
+        document.getElementById("numero_disponible").value=result["numero_disponible"];
+        document.getElementById("numero_ocupado").value=result["numero_ocupado"];
+    
       }
   });
 }
 function limpiar(){
-  document.getElementById("numero_documento").className="form-control";
-  document.getElementById("nombres").className="form-control";
-  document.getElementById("apellidos").className="form-control";
-  document.getElementById("telefono").className="form-control";
-  document.getElementById("correo_electronico").className="form-control";
-  document.getElementById("direccion").className="form-control";
-  document.getElementById("ciudad").className="form-control";
-  document.getElementById("estado").className="form-control";
+  document.getElementById("autor").className="form-control";
+  document.getElementById("isbn").className="form-control";
+  document.getElementById("genero").className="form-control";
+  document.getElementById("numero_ocupado").className="form-control";
+  document.getElementById("numero_disponible").className="form-control";
+  
 
-  document.getElementById("tipo_documento").value = "";
-  document.getElementById("numero_documento").value = "";
-  document.getElementById("nombres").value = "";
-  document.getElementById("apellidos").value = "";
-  document.getElementById("telefono").value = "";
-  document.getElementById("correo_electronico").value = "";
-  document.getElementById("direccion").value = "";
-  document.getElementById("ciudad").value = "";
-  document.getElementById("estado").value="";
+  document.getElementById("titulo").value = "";
+  document.getElementById("autor").value = "";
+  document.getElementById("isbn").value = "";
+  document.getElementById("genero").value = "";
+  document.getElementById("numero_ocupado").value = "";
+  document.getElementById("numero_disponible").value = "";
+
 }
 
 // funcion  de deshabilitar cliente
