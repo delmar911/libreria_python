@@ -7,7 +7,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="./js/Libros.js"></script>
+        <script src="./js/libro.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
         <link rel="stylesheet" href="css/estilos.css">
@@ -123,16 +123,13 @@
             <thead class="table-light">
                 <tr>
 
-                    <th scope="col">Código del Libros</th>
-                    <th scope="col">Identificación</th>
-                    <th scope="col">NO° Identificación</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Direccion </th>
-                    <th scope="col">Ciudad</th>
-                    <th scope="col">Estado</th>
+                    <th scope="col">Código del libro</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Autor</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Género</th>
+                    <th scope="col">Número disponible</th>
+                    <th scope="col">Número ocupado</th>
                     <th scope="col">Editar </th>
 
                 </tr>
@@ -161,61 +158,41 @@
                 <div class="row" >
                  
                          <div class="col-6">
-                           <label for="tipo_documento" class="form-label">Tipo identificacion</label>
-                           <select class="form-select" id="tipo_documento" focusout="validarTipo_documento(this);">
-                               <option selected disabled value="">Selecciona una opción</option>
-                               <option value="TI">Tarjeta de Identidad</option>
-                               <option value="CC">Cedula de Ciudadanía</option>
-                               <option value="CE">Cedula de Extranjería</option>
-                           </select>
+                            <label for="titulo" class="form-label">Título*</label>
+                            <input type="text" class="form-control" name="titulo" id="titulo" onfocusout="validarNombreApellido(this);">
                          </div>
                  
                           <div class="col-6">
-                             <label for="numero_documento" class="form-label">Número de Identificación</label>
-                             <input type="number" class="form-control" name="numero_documento" id="numero_documento"  step="1" onfocusout="validarNumeroDocumento(this);">
-                             <input type="hidden" id="id_Libros" step="1">
+                            <label for="autor" class="form-label">Autor*</label>
+                            <input type="text" class="form-control"  name="autor" id="autor" >
+                             <input type="hidden" id="id" step="1">
                            </div>
                  
                            <div class="col-6">
-                             <label for="nombres" class="form-label">Nombres</label>
-                             <input type="text" class="form-control"  name="nombres" id="nombres" onfocusout="validarNombreApellido(this);">
+                            <label for="isbn" class="form-label">ISBN*</label>
+                            <input type="number" class="form-control" name="isbn" id="isbn"   onfocusout="validarNombreApellido(this);">
                            </div>
                  
                            <div class="col-6">
-                             <label for="apellidos" class="form-label">Apellidos</label>
-                             <input type="text" class="form-control" name="apellidos" id="apellidos"onfocusout="validarNombreApellido(this);"  >
+                            <label for="genero" class="form-label">Género*</label>
+                            <input type="text" class="form-control" name="genero" id="genero"   onfocusout="validarNombreApellido(this);">
                            </div>
                  
                            <div class="col-6">
-                             <label for="telefono" class="form-label">Teléfono</label>
-                             <input type="text" class="form-control" name="telefono" id="telefono"  onfocusout="validarTelefono(this);">
+                            <label for="numero_disponible" class="form-label">Número de ejemplares disponibles*</label>
+                            <input type="number" class="form-control" name="numero_disponible" id="numero_disponible" >
                            </div>
                  
                            <div class="col-6">
-                             <label for="correo_electronico" class="form-label">Correo</label>
-                             <input type="text" class="form-control" name="correo_electronico" id="correo_electronico"  >
+                            <label for="numero_ocupado" class="form-label">Número de ejmplares ocupados*</label>
+                            <input type="number" class="form-control" name="numero_ocupado" id="numero_ocupado" >
                            </div>
-                           <div class="col-6">
-                             <label for="direccion" class="form-label">Direccion</label>
-                             <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validarDireccionCiudad(this);" >
-                           </div>
-                           <div class="col-6">
-                             <label for="ciudad" class="form-label">Ciudad</label>
-                             <input type="text" class="form-control" name="ciudad" id="ciudad" onfocusout="validarDireccionCiudad(this);" >
-                           </div>
-                 
-                           <div class="col-6">
-                             <label for="estado" class="form-label">Estado</label>
-                              <select name="estado" id="estado" class="form-select">
-                                 <option selected disabled value="">¿En que estado se encuentra?...</option>
-                                 <option value="Activo">Activo</option>
-                                 <option value="Inactivo">Inactivo</option>
-                             </select>
-                         </div>
+                                  
+                        
                       
                      </div> 
                      <div class="modal-footer">
-                        <button type="button" class="btn btn-success" onclick="updateLibros();">Guardar</button>
+                        <button type="button" class="btn btn-success" onclick="updateLibro();">Guardar</button>
 
                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                    </div>
