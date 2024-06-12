@@ -1,4 +1,4 @@
-import uuid
+
 from django.db import models
 
 # Create your models here.
@@ -21,7 +21,7 @@ class usuario(models.Model):
     tipo_usuario = [
         (1, 'Lector'),
         (2, 'Bibliotecario'),
-        (3, 'Administrador') 
+        (3, 'Administrador')
     ]
     nombres = models.CharField(max_length=60)
     direccion = models.CharField(max_length=60)

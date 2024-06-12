@@ -220,7 +220,7 @@ function updateLibro(){
 //Cuando estamos actualizando los datos, y lo hacemos correctamente Aparecerá la Alerta EXCELENTE *****
 if(validarCampos()){
   $.ajax({
-      url: url + id,
+      url: url + id+"/",
       type: "PUT",
       data: formData,
       success: function(result) {
@@ -233,7 +233,7 @@ if(validarCampos()){
           var modal = document.getElementById("exampleModal"); 
           modal.style.display = "hide";
           
-          listarcliente(); //Lista los médicos después de actualizar
+          listarLibros(); //Lista los médicos después de actualizar
       },
       error: function(error) {
           Swal.fire("Error", "Error al guardar", "error");
@@ -311,7 +311,7 @@ function deshabilitarcliente(id){
             'El registro ha sido deshabilitado ',
             'success'
           );
-          listarcliente();//recarga la lista de medicos
+          listarLibros();//recarga la lista de medicos
         },
         error: function(error){
           Swal.fire(
