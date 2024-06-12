@@ -18,8 +18,6 @@ body {
     background: url(/frontend/img/imagen-archivo-libros_69.jpg) no-repeat center/cover;
 }
 
-/* Index */
-
 .btn {
     transition: .5s;
     font-weight: 500;
