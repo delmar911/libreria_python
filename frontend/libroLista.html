@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Listar Medico</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="./js/Libros.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+        <link rel="stylesheet" href="css/estilos.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/js/dataTables.min.js">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
+        <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    
+
+    
+    </head>
+    <body onload="listarLibros();">
+    
+        <!-- Topbar Start(Inicio de la barra superior) -->
+        <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background-color: #9d7ed4;">
+            <div class="container pb-2">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="index.html" class="h1 text-white mb-0" style="font-size:  50px;  font-family: Roboto sans-serif ; text-decoration: none">SHOES <span class="text-dark"> STORE</span></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Start(Inicio de la barra de navegación) -->
+        <div class="container-fluid sticky-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
+                    <a href="index.html" class="navbar-brand d-lg-none">
+                        <h1 class="text-white m-0">SHOES<span class="text-dark">STORE</span></h1>
+                    </a>
+                    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                        data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <div class="navbar-nav" style="margin-left: 2%;">
+                            <a href="index.html" class="nav-item nav-link active">Home</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
+                                <div class="dropdown-menu bg-light m-0">                                
+                                    <a href="LibrosRegistro.html" class="dropdown-item">Registro de Libros</a>
+                                    <a href="LibrosLista.html" class="dropdown-item">Lista de Libross</a>
+                                </div>
+                            </div>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Productos</a>
+                                <div class="dropdown-menu bg-light m-0">
+                                    <a href="./productoRegistro.html" class="dropdown-item">Registro de productos</a>
+                                    <a href="./productoLista.html" class="dropdown-item">Lista de productos</a>
+                                </div>
+                            </div>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Venta</a>
+                                <div class="dropdown-menu bg-light m-0">
+                                    <a href="./ventasRegistro.html" class="dropdown-item">Registro de ventas</a>
+                                    <a href="./ventasLista.html" class="dropdown-item">Lista de ventas</a>
+                                </div>
+                            </div>
+
+                                
+                        <!-- Proveedores -->
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Proveedores</a>
+                                <div class="dropdown-menu bg-light m-0">
+                                    <a href="./proveedoresRegistro.html" class="dropdown-item">Registro</a>
+                                    <a href="./proveedoresLista.html" class="dropdown-item">Lista de Proveedores</a>
+                                </div>
+                            </div>
+
+                        <!-- Orden de compra y Detalle-->
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Orden de compra</a>
+                                <div class="dropdown-menu bg-light m-0">
+                                    <a href="./compraRegistro.html" class="dropdown-item">Registro de productos</a>
+                                    <a href="./compraLista.html" class="dropdown-item">Lista de productos</a>
+                                    <a href="./compraDetalle.html" class="dropdown-item">Detalle de compras</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+        <div class="container">
+
+              <h2 class="registrarPacienteT">Lista de Libross</h2>
+        <div class="row" style="margin-right: 0px; justify-content: center;">
+            <div class="col-4">
+                <div class="input-group mb-3 ">
+                <input type="text" class="form-control" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button"  onclick="listarLibros();">Buscar</button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="input-group mb-3 ">
+                <input type="text" class="form-control" placeholder="Filtrar por cuidad"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button"  onclick="listarLibros();">Buscar</button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="input-group mb-3 ">
+                <input type="text" class="form-control" placeholder="Filtrar por Estado" id="estadofiltro" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <button class="btn btn-outline-success" type="button"  onclick="estadofiltro();">Buscar</button>
+                </div>
+            </div>
+            
+        </div>
+        <table class="table table-hover">
+        </div>
+      
+            <thead class="table-light">
+                <tr>
+
+                    <th scope="col">Código del Libros</th>
+                    <th scope="col">Identificación</th>
+                    <th scope="col">NO° Identificación</th>
+                    <th scope="col">Nombres</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Direccion </th>
+                    <th scope="col">Ciudad</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Editar </th>
+
+                </tr>
+            </thead>
+            <tbody id="cuerpoTablaLibros">
+                     
+            </tbody>
+        </table>
+       
+
+       <!-- Button trigger modal -->
+       <!-- <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+        <i class="fa-regular fa-file"></i> Registro Libros
+      </button> -->
+
+
+   <!-- Modal Registro Persona -->
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
+       <div class="modal-dialog modal-dialog-scrollable" >
+           <div class="modal-content" style="width: 800px; ">
+               <div class="modal-header">
+                   <h5 class="modal-title" id="exampleModal">Modificar Libros</h5>
+                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body"  >
+                <div class="row" >
+                 
+                         <div class="col-6">
+                           <label for="tipo_documento" class="form-label">Tipo identificacion</label>
+                           <select class="form-select" id="tipo_documento" focusout="validarTipo_documento(this);">
+                               <option selected disabled value="">Selecciona una opción</option>
+                               <option value="TI">Tarjeta de Identidad</option>
+                               <option value="CC">Cedula de Ciudadanía</option>
+                               <option value="CE">Cedula de Extranjería</option>
+                           </select>
+                         </div>
+                 
+                          <div class="col-6">
+                             <label for="numero_documento" class="form-label">Número de Identificación</label>
+                             <input type="number" class="form-control" name="numero_documento" id="numero_documento"  step="1" onfocusout="validarNumeroDocumento(this);">
+                             <input type="hidden" id="id_Libros" step="1">
+                           </div>
+                 
+                           <div class="col-6">
+                             <label for="nombres" class="form-label">Nombres</label>
+                             <input type="text" class="form-control"  name="nombres" id="nombres" onfocusout="validarNombreApellido(this);">
+                           </div>
+                 
+                           <div class="col-6">
+                             <label for="apellidos" class="form-label">Apellidos</label>
+                             <input type="text" class="form-control" name="apellidos" id="apellidos"onfocusout="validarNombreApellido(this);"  >
+                           </div>
+                 
+                           <div class="col-6">
+                             <label for="telefono" class="form-label">Teléfono</label>
+                             <input type="text" class="form-control" name="telefono" id="telefono"  onfocusout="validarTelefono(this);">
+                           </div>
+                 
+                           <div class="col-6">
+                             <label for="correo_electronico" class="form-label">Correo</label>
+                             <input type="text" class="form-control" name="correo_electronico" id="correo_electronico"  >
+                           </div>
+                           <div class="col-6">
+                             <label for="direccion" class="form-label">Direccion</label>
+                             <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validarDireccionCiudad(this);" >
+                           </div>
+                           <div class="col-6">
+                             <label for="ciudad" class="form-label">Ciudad</label>
+                             <input type="text" class="form-control" name="ciudad" id="ciudad" onfocusout="validarDireccionCiudad(this);" >
+                           </div>
+                 
+                           <div class="col-6">
+                             <label for="estado" class="form-label">Estado</label>
+                              <select name="estado" id="estado" class="form-select">
+                                 <option selected disabled value="">¿En que estado se encuentra?...</option>
+                                 <option value="Activo">Activo</option>
+                                 <option value="Inactivo">Inactivo</option>
+                             </select>
+                         </div>
+                      
+                     </div> 
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="updateLibros();">Guardar</button>
+
+                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                   </div>
+             </div>
+           </div>    
+       </div>
+   </div>    
+</body>     
