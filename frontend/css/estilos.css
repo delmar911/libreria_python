@@ -488,12 +488,12 @@ body {
     
 }
 .registrarPacienteT{
-    font-family:'Roboto sans-serif ';
+    font-family: Roboto, sans-serif;
     text-align: center;
     margin-top: 30px;
 }
 .registrarMedicosT{
-    font-family:'Roboto sans-serif ';
+    font-family: Roboto, sans-serif;
     text-align: center;
     margin-top: 30px;
 }
