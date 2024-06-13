@@ -16,4 +16,5 @@ urlpatterns = [
     path("api/v1/", include(router_libros.urls)),
     path("docs/", include_docs_urls(title="Libreria Api")),
     path("api/v1/", include(router_usuarios.urls)),
+    path("api/v1/librofiltro/<str:titulo>/", views.LibroConsultaView.as_view(), name="librofiltro"),
 ]

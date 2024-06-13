@@ -108,29 +108,17 @@
             </div>
         </div>
         <!-- Navbar End -->
-        <div class="container">
+        <div class="container" style=" background-color: rgba(255, 255, 255, 0.7); border-radius: 10px; height: 24rem;">
 
               <h2 class="registrarPacienteT">Lista de Libross</h2>
         <div class="row" style="margin-right: 0px; justify-content: center;">
             <div class="col-4">
                 <div class="input-group mb-3 ">
-                <input type="text" class="form-control" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-success" type="button"  onclick="listarLibros();">Buscar</button>
+                    <input class="form-control me-2" type="search" placeholder="Buscar libro" aria-label="Search" id="buscar">
+                    <button class="btn btn-outline-success" type="button" onclick="listarLibros();">Buscar</button>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="input-group mb-3 ">
-                <input type="text" class="form-control" placeholder="Filtrar por cuidad"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-success" type="button"  onclick="listarLibros();">Buscar</button>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="input-group mb-3 ">
-                <input type="text" class="form-control" placeholder="Filtrar por Estado" id="estadofiltro" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-outline-success" type="button"  onclick="estadofiltro();">Buscar</button>
-                </div>
-            </div>
-            
+                       
         </div>
         <table class="table table-hover">
         </div>

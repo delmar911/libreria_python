@@ -4,7 +4,7 @@ function listarLibros() {
   var busqueda = document.getElementById("buscar").value;
   var urlBusqueda = url;
   if (busqueda!=""){
-    urlBusqueda+="busquedafiltro/"+busqueda; 
+    urlBusqueda+="librofiltro/"+busqueda; 
    
   }
   

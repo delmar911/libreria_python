@@ -1,37 +1,19 @@
-# View: Gestiona las solicitudes HTTP y devuelve respuestas web.
-# En DRF, las vistas pueden manejar la lógica CRUD y están estrechamente
-# integradas con los serializadores para manejar la representación de datos.
-
-from django.shortcuts import render
-from rest_framework import viewsets
-from .serializer import LibroSerializer, UsuarioSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 import sqlite3
-from .models import libro
-from .models import usuario
 
-
-# Create your views here.
-#se crea la clase view por cada modelo
-class LibroView(viewsets.ModelViewSet):
-    serializer_class = LibroSerializer
-    queryset = libro.objects.all()
-    
-class UsuarioView(viewsets.ModelViewSet):
-    serializer_class = UsuarioSerializer
-    queryset = usuario.objects.all()
-    
 class LibroConsultaView(APIView):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, titulo=None, *args, **kwargs):
         try:
             # Conectar a la base de datos
             conexion = sqlite3.connect('db.sqlite3')
             cursor = conexion.cursor()
 
-            # Ejecutar la consulta SQL
-            cursor.execute("SELECT * FROM libreria_libro")
+            # Construir la consulta SQL con el filtro por título
+            query = "SELECT * FROM libreria_libro WHERE titulo LIKE ?"
+            params = [f"%{titulo}%"]
+            cursor.execute(query, params)
             libros = cursor.fetchall()
 
             # Cerrar la conexión
