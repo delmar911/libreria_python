@@ -1,76 +1,67 @@
 //se almacena la url de la api
-let url="http://localhost:8082/api/v1/producto/";
-function listarproducto() {
+let url="http://127.0.0.1:8000/libreria/api/v1/usuarios/";
+function listarUsuario() {
     var busqueda = document.getElementById("buscar").value;
     var urlBusqueda = url;
     if (busqueda!=""){
-        urlBusqueda+="busquedafiltro/"+busqueda;
+        urlBusqueda+="?search="+busqueda;
     }   
     $.ajax({
         url:urlBusqueda,
         type: "GET",
         success: function(result){//success: funcion que se ejecuta cusndo la peticion tiene exito
             console.log(result);
-            let curpoTablaproducto = document.getElementById("curpoTablaproducto");
-            curpoTablaproducto.innerHTML="";
+            let cuerpoTablaUsuario = document.getElementById("cuerpoTablaUsuario");
+            cuerpoTablaUsuario.innerHTML="";
             for (let i = 0; i < result.length; i++) {
                //se crea una etiqueta tr por cada registro
                 let trRegistro = document.createElement("tr");//fila por cada registro de la tabla
                 let celdaId = document.createElement("td");
-                let celdaNombre = document.createElement("td");
-                let celdaDescripcion = document.createElement("td");
-                let celdaCantidad = document.createElement("td");
-                let celdaPrecio = document.createElement("td");
-                let celdaPorcentajeIva = document.createElement("td");
-                let celdaPorcentajeDescuento = document.createElement("td");
-                let celdaEstado = document.createElement("td");
+                let celdanombres = document.createElement("td");
+                let celdadireccion = document.createElement("td");
+                let celdacorreo = document.createElement("td");
+                let celdatipoUsuario = document.createElement("td");
+                
                 // let celdaEditar = document.createElement("td");
                 
                 //almacenamos en valor
                 
-                celdaId.innerText = result[i]["id_producto"];
-                celdaNombre.innerText= result[i]["nombre"];
-                celdaDescripcion.innerText = result[i]["descripcion"];
-                celdaCantidad.innerText = result[i]["cantidad"];
-                celdaPrecio.innerText = result[i]["precio"];
-                celdaPorcentajeIva.innerText = result[i]["porcentaje_iva"];
-                celdaPorcentajeDescuento.innerText = result[i]["porcentaje_descuento"];
-                celdaEstado.innerText = result[i]["estado"];
-                
+                celdaId.innerText = result[i]["id"];
+                celdanombres.innerText= result[i]["nombres"];
+                celdadireccion.innerText = result[i]["direccion"];
+                celdacorreo.innerText = result[i]["correo"];
+                celdatipoUsuario.innerText = result[i]["tipoUsuario"];
+            
                 //agregando a los td a su respectivo th y agregandolos a la fila
 
                 trRegistro.appendChild(celdaId);
-                trRegistro.appendChild(celdaNombre);
-                trRegistro.appendChild(celdaDescripcion);
-                trRegistro.appendChild(celdaCantidad);
-                trRegistro.appendChild(celdaPrecio);
-                trRegistro.appendChild(celdaPorcentajeIva);
-                trRegistro.appendChild(celdaPorcentajeDescuento);
-                trRegistro.appendChild(celdaEstado);
-                
+                trRegistro.appendChild(celdanombres);
+                trRegistro.appendChild(celdadireccion);
+                trRegistro.appendChild(celdacorreo);
+                trRegistro.appendChild(celdatipoUsuario);
+                                
                 //boton editar 
                 let celdaOpcion= document.createElement("td");
-                let botonEditarproducto= document.createElement("button");
-                botonEditarproducto.value=result[i]["id_producto"];
-                botonEditarproducto.innerHTML="Editar"; 
+                let botonEditarcliente= document.createElement("button");
+                botonEditarcliente.value=result[i]["id"];
+                botonEditarcliente.innerHTML="Editar"; 
 
-                botonEditarproducto.onclick=function(e){
+                botonEditarcliente.onclick=function(e){
                     $('#exampleModal').modal('show');
-                    consultarproductoID(this.value); 
+                    consultarUsuarioID(this.value); 
                 }
-                botonEditarproducto.className= "btn btn-primary"
+                botonEditarcliente.className= "btn btn-primary"
 
-                celdaOpcion.appendChild(botonEditarproducto); 
-                trRegistro.appendChild(celdaOpcion);
+                celdaOpcion.appendChild(botonEditarcliente); 
+                trRegistro.appendChild(celdaOpcion)
 
-                curpoTablaproducto.appendChild(trRegistro);//se traen todos los registros
-
+                cuerpoTablaUsuario.appendChild(trRegistro);
                  //boton desahiblitar- la funcion de deshabilitar se encuentra abajo 
                  let botonDeshabilitarproducto= document.createElement("button");
                  botonDeshabilitarproducto.innerHTML="<i class='fa-solid fa-trash'></i>"; 
                  botonDeshabilitarproducto.className="btn btn-danger"; 
  
-                 let productoIdParaDeshabilitar= result[i]["id_producto"]; 
+                 let productoIdParaDeshabilitar= result[i]["id"]; 
                  botonDeshabilitarproducto.onclick=function(){
                    deshabilitarproducto(productoIdParaDeshabilitar);
                  }
@@ -86,25 +77,21 @@ function listarproducto() {
 }
 
 //Paso para crear el registro de un médico ****
-function registrarproducto() {
+function registrarUsuario() {
     
-    let nombre = document.getElementById("nombre").value;
-    let descripcion = document.getElementById("descripcion").value;
-    let cantidad = document.getElementById("cantidad").value;
-    let precio = document.getElementById("precio").value;
-    let porcentaje_iva = document.getElementById("porcentaje_iva").value;
-    let porcentaje_descuento = document.getElementById("porcentaje_descuento").value;
-    let estado = document.getElementById("estado").value;
+    let nombres = document.getElementById("nombres").value;
+    let direccion = document.getElementById("direccion").value;
+    let correo = document.getElementById("correo").value;
+    let tipoUsuario = document.getElementById("tipoUsuario").value;
+   
 
     let formData = {
         
-        "nombre": nombre,
-        "descripcion": descripcion,
-        "cantidad": cantidad,
-        "precio": precio,
-        "porcentaje_iva": porcentaje_iva,
-        "porcentaje_descuento": porcentaje_descuento,
-        "estado": estado
+        "nombres": nombres,
+        "direccion": direccion,
+        "correo": correo,
+        "tipoUsuario": tipoUsuario,
+       
     };
     if(validarCampos()){
 
@@ -137,18 +124,18 @@ function registrarproducto() {
 
 //Paso para que el usuario se registre y llene todos los datos correctamente :D****
 function validarCampos() {
-  var nombre = document.getElementById("nombre");
-  let descripcion = document.getElementById("descripcion");
-  var cantidad = document.getElementById("cantidad"); 
-  var precio = document.getElementById("precio"); 
+  var nombres = document.getElementById("nombres");
+  let direccion = document.getElementById("direccion");
+  var correo = document.getElementById("correo"); 
+  var tipoUsuario = document.getElementById("tipoUsuario"); 
   var porcentaje_iva = document.getElementById("porcentaje_iva"); 
   var porcentaje_descuento=document.getElementById("porcentaje_descuento"); 
 
-  return validarNombreProducto(nombre) && validarNombreProducto(descripcion) && validarCantidad(cantidad) 
-       && validarPrecio(precio) && validarIvaDescuento(porcentaje_iva) && validarIvaDescuento(porcentaje_descuento);
+  return validarnombresProducto(nombres) && validarnombresProducto(direccion) && validarcorreo(correo) 
+       && validartipoUsuario(tipoUsuario) && validarIvaDescuento(porcentaje_iva) && validarIvaDescuento(porcentaje_descuento);
 }
 
-function validarNombreProducto(campo){
+function validarnombresProducto(campo){
   var valido=true;
   if(campo.value.length < 3 || campo.value.length > 45){
       valido=false;
@@ -163,11 +150,11 @@ function validarNombreProducto(campo){
   return valido;
 }
 
-function validarCantidad(Numero) {
+function validarcorreo(Numero) {
   
   let valor = Numero.value;
   let valido = true;
-  if(cantidad.value.length < 0 || cantidad.value.length > 10000){
+  if(correo.value.length < 0 || correo.value.length > 10000){
       valido=false;
   }
 
@@ -182,7 +169,7 @@ function validarCantidad(Numero) {
 
 
 
-function validarPrecio(Numero) {
+function validartipoUsuario(Numero) {
   
   let valor = Numero.value;
   let valido = true;
@@ -215,24 +202,21 @@ function validarIvaDescuento(campo){
 }
 
 //Cuando le damos click al boton de guardar, este llamara a la function updateproducto por medio del onclick******
-function updateproducto() {
-    var id_producto = document.getElementById("id_producto").value;
+function updateUsuario() {
+    var id = document.getElementById("id").value;
 
     let formData = {
-        "nombre": document.getElementById("nombre").value,
-        "descripcion": document.getElementById("descripcion").value,
-        "cantidad": document.getElementById("cantidad").value,
-        "precio": document.getElementById("precio").value,
-        "porcentaje_iva": document.getElementById("porcentaje_iva").value,
-        "porcentaje_descuento": document.getElementById("porcentaje_descuento").value,
-        "estado": document.getElementById("estado").value
+        "nombres": document.getElementById("nombres").value,
+        "direccion": document.getElementById("direccion").value,
+        "correo": document.getElementById("correo").value,
+        "tipoUsuario": document.getElementById("tipoUsuario").value
     };
 
 
     //Cuando estamos actualizando los datos, y lo hacemos correctamente Aparecerá la Alerta EXCELENTE *****
     if(validarCampos()){
     $.ajax({
-        url: url + id_producto,
+        url: url + id + "/",
         type: "PUT",
         data: formData,
         success: function(result) {
@@ -263,40 +247,35 @@ function updateproducto() {
 
 /* metodo para obtener los datos en el modal de actualizar*/ 
 //1.Crear petición que traiga la información del producto por id
-function consultarproductoID(id){
+function consultarUsuarioID(id){
     //alert(id);
     $.ajax({
         url:url+id,
         type:"GET",
         success: function(result){
             console.log(result);
-            document.getElementById("id_producto").value=result["id_producto"];
-            document.getElementById("nombre").value=result["nombre"];
-            document.getElementById("descripcion").value=result["descripcion"];
-            document.getElementById("cantidad").value=result["cantidad"];
-            document.getElementById("precio").value=result["precio"];
-            document.getElementById("porcentaje_iva").value=result["porcentaje_iva"];
-            document.getElementById("porcentaje_descuento").value=result["porcentaje_descuento"];
-            document.getElementById("estado").value=result["estado"];
+            document.getElementById("id").value=result["id"];
+            document.getElementById("nombres").value=result["nombres"];
+            document.getElementById("direccion").value=result["direccion"];
+            document.getElementById("correo").value=result["correo"];
+            document.getElementById("tipoUsuario").value=result["tipoUsuario"];
+         
         }
-    });
-}
-function limpiar(){
-    document.getElementById("descripcion").className="form-control";
-    document.getElementById("cantidad").className="form-control";
-    document.getElementById("porcentaje_iva").className="form-control";
-    document.getElementById("celular").className="form-control";
-    document.getElementById("correo_electronico").className="form-control";
-    document.getElementById("direccion").className="form-control";
-    document.getElementById("estado").className="form-control";
+      });
 
-    document.getElementById("nombre").value = "";
-    document.getElementById("descripcion").value = "";
-    document.getElementById("cantidad").value = "";
-    document.getElementById("precio").value = "";
-    document.getElementById("porcentaje_iva").value = "";
-    document.getElementById("porcentaje_descuento").value = "";
-    document.getElementById("estado").value="";
+}
+
+function limpiar(){
+    document.getElementById("nombres").className="form-control";
+    document.getElementById("correo").className="form-control";
+    document.getElementById("tipoUsuario").className="form-control";
+    document.getElementById("direccion").className="form-control";
+   
+
+    document.getElementById("nombres").value = "";
+    document.getElementById("direccion").value = "";
+    document.getElementById("correo").value = "";
+    document.getElementById("tipoUsuario").value = "";
 }
 // funcion  de deshabilitar producto
 function deshabilitarproducto(id){

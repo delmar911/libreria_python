@@ -17,7 +17,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <link rel="stylesheet" href="css/estilos.css">
-        <script src="./js/producto.js"></script>
+        <script src="./js/usuario.js"></script>
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
@@ -62,13 +62,13 @@
                                     </div>
                                 </div>
 
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Productos</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./productoRegistro.html" class="dropdown-item">Registro de productos</a>
-                                    <a href="./productoLista.html" class="dropdown-item">Lista de productos</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Usuario</a>
+                                    <div class="dropdown-menu bg-light m-0">
+                                        <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
+                                        <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
+                                    </div>
                                 </div>
-                            </div>
                             
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Venta</a>
@@ -78,33 +78,14 @@
                                 </div>
                             </div>
 
-                                
-                        <!-- Proveedores -->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Proveedores</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./proveedoresRegistro.html" class="dropdown-item">Registro</a>
-                                    <a href="./proveedoresLista.html" class="dropdown-item">Lista de Proveedores</a>
-                                </div>
-                            </div>
-
-                        <!-- Orden de compra y Detalle-->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Orden de compra</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./compraRegistro.html" class="dropdown-item">Registro de productos</a>
-                                    <a href="./compraLista.html" class="dropdown-item">Lista de productos</a>
-                                    <a href="./compraDetalle.html" class="dropdown-item">Detalle de compras</a>
-                                </div>
-                            </div>
-                            
+                                                
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
         <!-- Navbar End -->
-        <h1 class="registrarPacienteT">Registrar productos</h1>
+        <h1 class="registrarPacienteT">Registrar usuarios</h1>
         <!-- from Star(fromulario inicio) -->
         <div class="" style="padding-left: 21rem;">
             <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
@@ -112,40 +93,28 @@
        <div class="row" style="margin-right: 0px;">  
            
             <div class="col-md-4">
-                <label for="nombre" class="form-label">Nombre*</label>
-                <input type="text" class="form-control" name="nombre" id="nombre" step="1" onfocusout="validarNombreProducto(this);" >
+                <label for="nombres" class="form-label">Nombres completos*</label>
+                <input type="text" class="form-control" name="nombres" id="nombres" step="1"  >
             </div>
             <div class="col-md-4">
-                <label for="descripcion" class="form-label">Descripción*</label>
-                <input type="text" class="form-control" name="descripcion" id="descripcion"onfocusout="validarNombreProducto(this);" >
+                <label for="direccion" class="form-label">Dirección*</label>
+                <input type="text" class="form-control" name="direccion" id="direccion" >
             </div>
             <div class="col-md-4">
-                <label for="cantidad" class="form-label">Cantidad*</label>
-                <input type="number" class="form-control" name="cantidad" id="cantidad"  onfocusout="validarCantidad(this);">
+                <label for="cantidad" class="form-label">Correo*</label>
+                <input type="number" class="form-control" name="correo" id="correo">
             </div>
             <div class="col-md-4">
-                <label for="precio" class="form-label">Precio*</label>
-                <input type="number" class="form-control" name="precio" id="precio" onfocusout="validarPrecio(this);" >
-            </div>
-            <div class="col-md-4">
-                <label for="porcentaje_iva" class="form-label">Porcentaje Iva</label>
-                <input type="text" class="form-control" name="porcentaje_iva" id="porcentaje_iva" onfocusout="validarIvaDescuento(this);">
-            </div>
-            <div class="col-md-4">
-                <label for="porcentaje_descuento" class="form-label">Porcentaje Descuento</label>
-                <input type="text" class="form-control" name="porcentaje_descuento" id="porcentaje_descuento">
-            </div>
-            
-            <div class="col-md-4">
-                <label for="estado" class="form-label">Estado*</label>
-                 <select name="estado" id="estado" class="form-select">
-                    <option selected disabled value="">¿En que estado se encuentra?...</option>
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
-                </select>
+                <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
+                <select name="tipoUsuario" id="tipoUsuario" class="form-select">
+                <option selected disabled value="">
+                    Seleccione el tipo de usuario
+                  </option>
+                  <option value=""></option>
+                  <option value=""></option>
             </div>
             <div class="col-12" style=" display: flex;justify-content: center;">
-                <button class="btn btn-success" type="button" onclick="registrarproducto();" style="width: 200px;">Registrar</button>
+                <button class="btn btn-success" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
                 <button class="btn btn-dark" type="button" onclick="limpiar();" style="width: 200px;">Limpiar</button>
             </div>
         </div>

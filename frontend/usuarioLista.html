@@ -17,12 +17,12 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <link rel="stylesheet" href="css/estilos.css">
-        <script src="./js/producto.js"></script>
+        <script src="./js/usuario.js"></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
   
 </head>
-<body onload="listarproducto();">
+<body onload="listarUsuario();">
    <!-- Brand Start (Inicio de marca) -->
     <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
         <div class="container p-4">
@@ -62,10 +62,10 @@
                             </div>
 
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Productos</a>
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Usuario</a>
                                 <div class="dropdown-menu bg-light m-0">
-                                    <a href="./productoRegistro.html" class="dropdown-item">Registro de productos</a>
-                                    <a href="./productoLista.html" class="dropdown-item">Lista de productos</a>
+                                    <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
+                                    <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
                                 </div>
                             </div>
                             
@@ -79,23 +79,10 @@
 
                                 
                         <!-- Proveedores -->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Proveedores</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./proveedoresRegistro.html" class="dropdown-item">Registro</a>
-                                    <a href="./proveedoresLista.html" class="dropdown-item">Lista de Proveedores</a>
-                                </div>
-                            </div>
+                          
 
                         <!-- Orden de compra y Detalle-->
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Orden de compra</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./compraRegistro.html" class="dropdown-item">Registro de productos</a>
-                                    <a href="./compraLista.html" class="dropdown-item">Lista de productos</a>
-                                    <a href="./compraDetalle.html" class="dropdown-item">Detalle de compras</a>
-                                </div>
-                            </div>
+                           
                             
                         </div>
                     </div>
@@ -103,20 +90,14 @@
             </div>
         </div>
         <!-- Navbar End -->
-        <h2 class="registrarPacienteT">Lista de productos</h2>
+        <h2 class="registrarPacienteT">Lista de usuarios</h2>
         <div class="container">
             <!-- star table -->
             <div class="row" style="margin-right: 0px; justify-content: center;">
                 <div class="col-4">
                     <div class="input-group mb-3 ">
                     <input type="text" class="form-control" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-success" type="button"  onclick="listarproducto();">Buscar</button>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="input-group mb-3 ">
-                    <input type="text" class="form-control" placeholder="Filtrar por Estado" id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-success" type="button"  onclick="listarproducto();">Buscar</button>
+                    <button class="btn btn-outline-success" type="button"  onclick="listarUsuario();">Buscar</button>
                     </div>
                 </div>
                 
@@ -126,19 +107,17 @@
             <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">Código producto</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Descripción</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Porcentaje Iva</th>
-                        <th scope="col">Porcentaje Descuento</th>
-                        <th scope="col">Estado</th>
-                        <th scope="col">Editar</th>
+                        <th scope="col">Código usuario</th>
+                        <th scope="col">Nombres completos</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">tipo de usuarios</th>
+                        <th scope="col">Editar </th>
 
+                      
                     </tr>
                 </thead>
-                <tbody id="curpoTablaproducto">
+                <tbody id="cuerpoTablaUsuario">
                         
                 </tbody>
             </table>
@@ -149,7 +128,7 @@
     <div class="modal-dialog modal-dialog-scrollable" >
         <div class="modal-content" style="width: 800px; ">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar producto</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
@@ -158,43 +137,26 @@
                     <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
                 </div>
                 <div class="col-6">
-                    <label for="nombre" class="form-label">Nombre*</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" step="1" onfocusout="validarNombreProducto(this);" >
-                    <input type="hidden" id="id_producto" step="1">
+                    <label for="nombres" class="form-label">Nombres completos*</label>
+                    <input type="text" class="form-control" name="nombres" id="nombres" step="1" onfocusout="validarNombreusuario(this);" >
+                    <input type="hidden" id="id" step="1">
                 </div>
                 <div class="col-6">
-                    <label for="descripcion" class="form-label">Descripción*</label>
-                    <input type="text" class="form-control" name="descripcion" id="descripcion"onfocusout="validarNombreProducto(this);" >
+                    <label for="direccion" class="form-label">Dirección*</label>
+                    <input type="text" class="form-control" name="direccion" id="direccion" >
                 </div>
                 <div class="col-6">
-                    <label for="cantidad" class="form-label">Cantidad*</label>
-                    <input type="number" class="form-control" name="cantidad" id="cantidad"  onfocusout="validarCantidad(this);">
+                    <label for="correo" class="form-label">Correo*</label>
+                    <input type="text" class="form-control" name="correo" id="correo"  >
                 </div>
                 <div class="col-6">
-                    <label for="precio" class="form-label">Precio*</label>
-                    <input type="number" class="form-control" name="precio" id="precio" onfocusout="validarPrecio(this);" >
+                    <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
+                    <input type="text" class="form-control" name="tipoUsuario" id="tipoUsuario" >
                 </div>
-                <div class="col-6">
-                    <label for="porcentaje_iva" class="form-label">Porcentaje Iva</label>
-                    <input type="text" class="form-control" name="porcentaje_iva" id="porcentaje_iva" onfocusout="validarIvaDescuento(this);">
-                </div>
-                <div class="col-6">
-                    <label for="porcentaje_descuento" class="form-label">Porcentaje Descuento</label>
-                    <input type="text" class="form-control" name="porcentaje_descuento" id="porcentaje_descuento">
-                </div>
-                
-                <div class="col-6">
-                    <label for="estado" class="form-label">Estado*</label>
-                     <select name="estado" id="estado" class="form-select">
-                        <option selected disabled value="">¿En que estado se encuentra?...</option>
-                        <option value="Activo">Activo</option>
-                        <option value="Inactivo">Inactivo</option>
-                    </select>
-                </div>
-                   
+                                  
                   </div> 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="updateproducto();">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="updateUsuario();">Guardar</button>
                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
           </div>
