@@ -92,13 +92,15 @@
             </div>
         </div>
         <!-- Navbar End -->
-        <div class="container" style=" background-color: rgba(0, 0, 0, 0.7); border-radius: 10px; height: 24rem;">
+        <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
 
-              <h2 class="registrarPacienteT">Lista de Libross</h2>
+              <h2 class="registrarPacienteT pt-4">Lista de Libros</h2>
         <div class="row" style="margin-right: 0px; justify-content: center;">
             <div class="col-4">
                 <div class="input-group mb-3 ">
+                    <!-- Input Search -->
                     <input class="form-control me-2" type="search" placeholder="Buscar libro" aria-label="Search" id="buscar">
+                    <!-- Button Search -->
                     <button class="btn btn-outline-success" type="button" onclick="listarLibros();">Buscar</button>
                 </div>
             </div>
@@ -107,17 +109,17 @@
         <table class="table table-hover">
         </div>
       
-            <thead class="table-light">
+            <thead class="table-light d-flex justify-content-center">
                 <tr>
 
-                    <th scope="col">Código del libro</th>
-                    <th scope="col">Título</th>
-                    <th scope="col">Autor</th>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Género</th>
-                    <th scope="col">Número disponible</th>
-                    <th scope="col">Número ocupado</th>
-                    <th scope="col">Editar </th>
+                    <th scope="col" class="px-3">Código del libro</th>
+                    <th scope="col" class="px-3">Título</th>
+                    <th scope="col" class="px-3">Autor</th>
+                    <th scope="col" class="px-3">ISBN</th>
+                    <th scope="col" class="px-3">Género</th>
+                    <th scope="col" class="px-3">Número disponible</th>
+                    <th scope="col" class="px-3">Número ocupado</th>
+                    <th scope="col" class="px-3">Editar </th>
 
                 </tr>
             </thead>
