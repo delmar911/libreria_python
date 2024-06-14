@@ -13,9 +13,11 @@ body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
 
-    height: 100vh;
+    height: 100%;
     width: 100vw;
-    background: url(/frontend/img/imagen-archivo-libros_69.jpg) no-repeat center/cover;
+    background: url(/frontend/img/imagen-archivo-libros_69.jpg) /*no-repeat center/cover*/;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* Change Bluen Glow */

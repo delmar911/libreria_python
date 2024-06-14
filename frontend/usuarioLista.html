@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <link rel="stylesheet" href="./css/btn.css">
         <link rel="stylesheet" href="css/estilos.css">
         <script src="./js/usuario.js"></script>
     <!-- Favicon -->
@@ -79,10 +80,7 @@
 
                                 
                         <!-- Proveedores -->
-                          
-
                         <!-- Orden de compra y Detalle-->
-                           
                             
                         </div>
                     </div>
@@ -90,31 +88,29 @@
             </div>
         </div>
         <!-- Navbar End -->
-        <h2 class="registrarPacienteT">Lista de usuarios</h2>
-        <div class="container">
-            <!-- star table -->
-            <div class="row" style="margin-right: 0px; justify-content: center;">
-                <div class="col-4">
-                    <div class="input-group mb-3 ">
-                    <input type="text" class="form-control" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                    <button class="btn btn-outline-success" type="button"  onclick="listarUsuario();">Buscar</button>
+        <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
+                <h2 class="registrarPacienteT pt-3 pb-4">Lista de usuarios</h2>
+            <div class="container">
+                <!-- star table -->
+                <div class="row" style="margin-right: 0px; justify-content: center;">
+                    <div class="col-4">
+                        <div class="input-group mb-3 ">
+                        <input type="text" class="form-control me-2 rounded-start-3" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarUsuario();">Buscar</button>
                     </div>
-                </div>
-                
+                </div>                
             </div>
             
 
             <table class="table table-hover">
-                <thead class="table-light">
+                <thead class="table-light d-flex justify-content-center">
                     <tr>
-                        <th scope="col">Código usuario</th>
-                        <th scope="col">Nombres completos</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">tipo de usuarios</th>
-                        <th scope="col">Editar </th>
-
-                      
+                        <th scope="col" class="px-5">Código usuario</th>
+                        <th scope="col" class="px-5">Nombres completos</th>
+                        <th scope="col" class="px-5">Dirección</th>
+                        <th scope="col" class="px-5">Correo</th>
+                        <th scope="col" class="px-5">tipo de usuarios</th>
+                        <th scope="col" class="px-5">Editar </th>
                     </tr>
                 </thead>
                 <tbody id="cuerpoTablaUsuario">
@@ -122,9 +118,8 @@
                 </tbody>
             </table>
         </div>
-      
         <!-- Modal Registro Persona -->
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
     <div class="modal-dialog modal-dialog-scrollable" >
         <div class="modal-content" style="width: 800px; ">
             <div class="modal-header">

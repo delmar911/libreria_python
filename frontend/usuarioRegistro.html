@@ -78,44 +78,45 @@
                                 </div>
                             </div>
 
-                                                
                         </div>
                     </div>
                 </nav>
             </div>
         </div>
         <!-- Navbar End -->
-        <h1 class="registrarPacienteT">Registrar usuarios</h1>
-        <!-- from Star(fromulario inicio) -->
-        <div class="" style="padding-left: 21rem;">
-            <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
-        </div>
-       <div class="row" style="margin-right: 0px;">  
-           
-            <div class="col-md-4">
-                <label for="nombres" class="form-label">Nombres completos*</label>
-                <input type="text" class="form-control" name="nombres" id="nombres" step="1"  >
+        <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
+            <h1 class="registrarPacienteT pt-3">Registrar usuarios</h1>
+            <!-- from Star(fromulario inicio) -->
+            <div class="d-flex justify-content-center">
+                <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
             </div>
-            <div class="col-md-4">
-                <label for="direccion" class="form-label">Dirección*</label>
-                <input type="text" class="form-control" name="direccion" id="direccion" >
-            </div>
-            <div class="col-md-4">
-                <label for="cantidad" class="form-label">Correo*</label>
-                <input type="number" class="form-control" name="correo" id="correo">
-            </div>
-            <div class="col-md-4">
-                <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
-                <select name="tipoUsuario" id="tipoUsuario" class="form-select">
-                <option selected disabled value="">
-                    Seleccione el tipo de usuario
-                  </option>
-                  <option value=""></option>
-                  <option value=""></option>
-            </div>
-            <div class="col-12" style=" display: flex;justify-content: center;">
-                <button class="btn btn-success" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
-                <button class="btn btn-dark" type="button" onclick="limpiar();" style="width: 200px;">Limpiar</button>
+
+            <div class="row" style="margin-right: 0px;">  
+                    <div class="col-md-4">
+                        <label for="nombres" class="form-label">Nombres completos*</label>
+                        <input type="text" class="form-control" name="nombres" id="nombres" step="1"  >
+                    </div>
+                    <div class="col-md-4">
+                        <label for="direccion" class="form-label">Dirección*</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" >
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cantidad" class="form-label">Correo*</label>
+                        <input type="number" class="form-control" name="correo" id="correo">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
+                        <select name="tipoUsuario" id="tipoUsuario" class="form-select">
+                        <option selected disabled value="">
+                            Seleccione el tipo de usuario
+                        </option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </div>
+                    <div class="col-12" style=" display: flex;justify-content: center;">
+                        <button class="btn btn-success" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
+                        <button class="btn btn-dark" type="button" onclick="limpiar();" style="width: 200px;">Limpiar</button>
+                    </div>
             </div>
         </div>
         <!-- from End(fromulario final) -->
