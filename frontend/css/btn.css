@@ -1,0 +1,43 @@
+/* Button List Book */
+#btn-search {
+    cursor: pointer;
+    position: relative;
+    padding: 6px 18px;
+    font-size: 12px;
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 178, 11);
+    border-radius: 34px;
+    background-color: transparent;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    overflow: hidden;
+}
+
+#btn-search::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 42px;
+    height: 42px;
+    border-radius: inherit;
+    scale: 0;
+    z-index: -1;
+    background-color: rgb(255, 174, 0);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+#btn-search:hover::before {
+    scale: 3;
+}
+
+#btn-search:hover{
+    color: #212121;
+    scale: 1.1;
+    box-shadow: 0 0px 20px rgba(193, 163, 98,0.4);
+}
+
+#btn-search:active{
+    scale: 1;
+}
+/* End Button Search List Book */

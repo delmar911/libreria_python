@@ -18,6 +18,12 @@ body {
     background: url(/frontend/img/imagen-archivo-libros_69.jpg) no-repeat center/cover;
 }
 
+/* Change Bluen Glow */
+.form-control:focus {
+    border-color: #ffd500;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  }
+
 .btn {
     transition: .5s;
     font-weight: 500;
@@ -466,7 +472,7 @@ body {
     font-family:'Roboto sans-serif ';
     text-align: center;
     }
-/** nabar servicio**/   
+/** navbar servicio**/   
 
 /** From (Formulario)**/
 .col-md-4{

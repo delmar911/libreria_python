@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
         <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="css/btn.css">
+
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.min.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/js/dataTables.min.js">
@@ -94,14 +96,14 @@
         <!-- Navbar End -->
         <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
 
-              <h2 class="registrarPacienteT pt-4">Lista de Libros</h2>
+              <h2 class="registrarPacienteT pt-3 pb-4">Lista de Libros</h2>
         <div class="row" style="margin-right: 0px; justify-content: center;">
             <div class="col-4">
                 <div class="input-group mb-3 ">
                     <!-- Input Search -->
                     <input class="form-control me-2" type="search" placeholder="Buscar libro" aria-label="Search" id="buscar">
                     <!-- Button Search -->
-                    <button class="btn btn-outline-success" type="button" onclick="listarLibros();">Buscar</button>
+                    <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarLibros();">Buscar</button>
                 </div>
             </div>
                        
