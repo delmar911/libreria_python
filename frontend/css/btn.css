@@ -6,7 +6,9 @@
     font-size: 12px;
     color: rgb(0, 0, 0);
     border: 2px solid rgb(255, 178, 11);
-    border-radius: 34px;
+    /* border-radius: 34px; */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     background-color: transparent;
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
