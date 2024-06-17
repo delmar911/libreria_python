@@ -21,10 +21,9 @@
 
         <!-- Favicon -->
         <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
-  
 </head>
 <body>
-       <!-- Brand Start (Inicio de marca) -->
+<!-- Brand Start (Inicio de marca) -->
         <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
             <div class="container p-4">
                 <div class="d-flex align-items-center justify-content-center">
@@ -43,9 +42,7 @@
                     <a href="index.html" class="navbar-brand d-lg-none">
                         <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
                     </a>
-    
-    <!--                 
-                    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                    <!-- <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                         data-bs-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button> -->
@@ -87,24 +84,24 @@
         <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
             <h1 class="registrarPacienteT pt-3">Registrar usuarios</h1>
             <!-- from Star(fromulario inicio) -->
-            <div class="d-flex justify-content-center">
-                <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
-            </div>
+                <div class="d-flex justify-content-center">
+                    <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+                </div>
 
-            <div class="row" style="margin-right: 0px;">  
-                    <div class="col-md-4">
+            <div class="row" style="place-content: center; gap: 20px;">
+                    <div class="col-md-4" style="margin-left: 0;">
                         <label for="nombres" class="form-label">Nombres completos*</label>
                         <input type="text" class="form-control" name="nombres" id="nombres" step="1"  >
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-left: 0;">
                         <label for="direccion" class="form-label">Dirección*</label>
                         <input type="text" class="form-control" name="direccion" id="direccion" >
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-left: 0;">
                         <label for="cantidad" class="form-label">Correo*</label>
                         <input type="number" class="form-control" name="correo" id="correo">
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-left: 0;">
                         <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
                         <select name="tipoUsuario" id="tipoUsuario" class="form-select">
                         <option selected disabled value="">
@@ -113,13 +110,13 @@
                         <option value=""></option>
                         <option value=""></option>
                     </div>
-                    <div class="col-12" style=" display: flex;justify-content: center;">
-                        <button class="btn btn-success" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
+                    <div class="col-12" style=" display: flex;justify-content: center;padding-bottom: 3%; gap: 20px;">
+                    <!-- <div class="col-12" style=" display: flex;justify-content: center;"> -->
+                        <button class="btn btn-warining" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
                         <button class="btn btn-dark" type="button" onclick="limpiar();" style="width: 200px;">Limpiar</button>
                     </div>
             </div>
         </div>
         <!-- from End(fromulario final) -->
- </body>
-
+</body>
 </html>
