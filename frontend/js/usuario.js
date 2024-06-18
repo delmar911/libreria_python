@@ -63,7 +63,7 @@ function listarUsuario() {
  
                  let productoIdParaDeshabilitar= result[i]["id"]; 
                  botonDeshabilitarproducto.onclick=function(){
-                   deshabilitarproducto(productoIdParaDeshabilitar);
+                  deshabilitarproducto(productoIdParaDeshabilitar);
                  }
                  celdaOpcion.appendChild(botonDeshabilitarproducto); 
                  trRegistro.appendChild(celdaOpcion)
@@ -73,7 +73,6 @@ function listarUsuario() {
             alert("Error en la peticion ${error}");
         }
     })
- 
 }
 
 //Paso para crear el registro de un médico
@@ -83,7 +82,6 @@ function registrarUsuario() {
     let direccion = document.getElementById("direccion").value;
     let correo = document.getElementById("correo").value;
     let tipoUsuario = document.getElementById("tipoUsuario").value;
-   
 
     let formData = {
         
@@ -91,7 +89,7 @@ function registrarUsuario() {
         "direccion": direccion,
         "correo": correo,
         "tipoUsuario": tipoUsuario,
-       
+
     };
     if(validarCampos()){
 
@@ -132,7 +130,7 @@ function validarCampos() {
   var porcentaje_descuento=document.getElementById("porcentaje_descuento"); 
 
   return validarnombresProducto(nombres) && validarnombresProducto(direccion) && validarcorreo(correo) 
-       && validartipoUsuario(tipoUsuario) && validarIvaDescuento(porcentaje_iva) && validarIvaDescuento(porcentaje_descuento);
+  && validartipoUsuario(tipoUsuario) && validarIvaDescuento(porcentaje_iva) && validarIvaDescuento(porcentaje_descuento);
 }
 
 function validarnombresProducto(campo){
