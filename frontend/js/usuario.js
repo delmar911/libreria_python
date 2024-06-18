@@ -76,7 +76,7 @@ function listarUsuario() {
  
 }
 
-//Paso para crear el registro de un médico ****
+//Paso para crear el registro de un médico
 function registrarUsuario() {
     
     let nombres = document.getElementById("nombres").value;

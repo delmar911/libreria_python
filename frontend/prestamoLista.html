@@ -13,7 +13,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="js/ventas.js"></script>
+        <script src="js/prestamo.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
         <link rel="stylesheet" href="css/estilos.css">
@@ -25,7 +25,7 @@
     
 </head>
 
-<body onload="listarventas();">
+<body onload="listarPrestamo();">
    <!-- Brand Start (Inicio de marca) -->
     <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
         <div class="container p-4">
@@ -70,13 +70,20 @@
                                 </div>
                             </div>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Venta</a>
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
                                 <div class="dropdown-menu bg-light m-0">
-                                    <a href="./ventasRegistro.html" class="dropdown-item">Registro de ventas</a>
-                                    <a href="./ventasLista.html" class="dropdown-item">Lista de ventas</a>
+                                    <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
+                                    <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
                                 </div>
                             </div>
 
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
+                                <div class="dropdown-menu bg-light m-0">
+                                    <a href="./multaRegistro.html" class="dropdown-item">Registro de Multa</a>
+                                    <a href="./multaLista.html" class="dropdown-item">Lista de Multa</a>
+                                </div>
+                            </div>
                                 
                         <!-- Proveedores -->
                        
@@ -87,7 +94,7 @@
             </div>
         </div>
         <!-- Navbar End -->
-        <h2 class="registrarPacienteT">Lista de ventas</h2>
+        <h2 class="registrarPacienteT">Lista de prestamo</h2>
         <div class="container">
 
             <div class="row" style="margin-right: 0px; justify-content: center;">
@@ -102,16 +109,17 @@
             <table class="table table-hover">
                 <thead class="table-light">
                     <tr>
-                        <th scope="col">Código  la venta</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Fecha de la venta</th>
-                        <th scope="col">Cliente</th>
+                        <th scope="col">Código  del prestamo</th>
+                        <th scope="col">Fecha de prestamo</th>
+                        <th scope="col">Fecha de la devolución</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Libro</th>
                         <th scope="col">Estado</th>
                         <th scope="col">Editar</th>
                         
                     </tr>
                 </thead>
-                <tbody id="curpoTablaventas">
+                <tbody id="curpoTablaprestamo">
                          
                 </tbody>
             </table>
@@ -122,44 +130,54 @@
                 <div class="modal-dialog modal-dialog-scrollable" >
                     <div class="modal-content" style="width: 800px; ">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModal">Modificar venta</h5>
+                            <h5 class="modal-title" id="exampleModal">Modificar prestamo</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body" onload="CargarFormulario();" >
                             <div class="row" >
                                 <div class="col-6">
-                                <label for="total" class="form-label">Total</label>
-                                <input type="number" class="form-control"
-                                    name="total"
-                                    id="total"
+                                <label for="fecha_prestamo" class="form-label">Fecha prestamo</label>
+                                <input type="date" class="form-control"
+                                    name="fecha_prestamo"
+                                    id="fecha_prestamo"
                                     step="1" 
                                     
                                 />
-                                <input type="hidden" id="id_venta" step="1">
+                                <input type="hidden" id="id" step="1">
                                 </div>
                                 <div class="col-6">
-                                <label for="fecha_venta" class="form-label">Fecha de la venta</label>
+                                <label for="fecha_devolucion" class="form-label">Fecha de la devolución</label>
                                 <input
-                                    type="datetime-local"
+                                    type="date"
                                     class="form-control"
-                                    name="fecha_venta"
-                                    id="fecha_venta"
-                                    step="1" onfocusout="validartotalventas(this);"
+                                    name="fecha_devolucion"
+                                    id="fecha_devolucion"
+                                    step="1" onfocusout="validartotalprestamo(this);"
                                     />
                                     
                                     <!-- onfocusout="validarNumeroIdentificacion(this);"  -->
                                 </div>
                                  
                                 <div class="col-6">
-                                <label for="cliente" class="form-label">Cliente</label>
-                                <select name="cliente" id="cliente" class="form-select">
+                                <label for="usuario" class="form-label">Usuario</label>
+                                <select name="usuario" id="usuario" class="form-select">
                                     <option selected disabled value="">
-                                    Seleccione el cliente
+                                    Seleccione el usuario
                                     </option>
                                     <option value=""></option>
                                     <option value=""></option>
                                 </select>
                                 </div>
+                                <div class="col-6">
+                                    <label for="libro" class="form-label">Libro</label>
+                                    <select name="libro" id="libro" class="form-select">
+                                        <option selected disabled value="">
+                                        Seleccione el libro
+                                        </option>
+                                        <option value=""></option>
+                                        <option value=""></option>
+                                    </select>
+                                    </div>
                                  
                                 <div class="col-6">
                                 <label for="estado" class="form-label">Estado</label>
@@ -173,7 +191,7 @@
                                 </div>
     
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" onclick="updateventas();">Guardar</button>
+                                    <button type="button" class="btn btn-success" onclick="updateprestamo();">Guardar</button>
             
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                 </div>
@@ -187,3 +205,4 @@
 
 
 </body>     
+</html>

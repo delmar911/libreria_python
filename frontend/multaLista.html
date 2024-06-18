@@ -18,12 +18,12 @@
 
         <link rel="stylesheet" href="./css/btn.css">
         <link rel="stylesheet" href="css/estilos.css">
-        <script src="./js/usuario.js"></script>
+        <script src="./js/multa.js"></script>
     <!-- Favicon -->
     <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
   
 </head>
-<body onload="listarUsuario();">
+<body onload="listarmulta();">
    <!-- Brand Start (Inicio de marca) -->
     <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
         <div class="container p-4">
@@ -93,14 +93,14 @@
         </div>
         <!-- Navbar End -->
         <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
-                <h2 class="registrarPacienteT pt-3 pb-4">Lista de usuarios</h2>
+                <h2 class="registrarPacienteT pt-3 pb-4">Lista de multas</h2>
             <div class="container">
                 <!-- star table -->
                 <div class="row" style="margin-right: 0px; justify-content: center;">
                     <div class="col-4">
                         <div class="input-group mb-3 ">
                         <input type="text" class="form-control me-2 rounded-start-3" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarUsuario();">Buscar</button>
+                        <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarmulta();">Buscar</button>
                     </div>
                 </div>                
             </div>
@@ -109,15 +109,15 @@
             <table class="table table-hover">
                 <thead class="table-light d-flex justify-content-center">
                     <tr>
-                        <th scope="col" class="px-5">Código usuario</th>
-                        <th scope="col" class="px-5">Nombres completos</th>
-                        <th scope="col" class="px-5">Dirección</th>
-                        <th scope="col" class="px-5">Correo</th>
-                        <th scope="col" class="px-5">tipo de usuarios</th>
-                        <th scope="col" class="px-5">Editar </th>
+                        <th scope="col" class="px-5">Código multa</th>
+                        <th scope="col" class="px-5">Usuario multado</th>
+                        <th scope="col" class="px-5">Prestamo</th>
+                        <th scope="col" class="px-5">Valor multa</th>
+                        <th scope="col" class="px-5">Estado multa</th>
+                        <th scope="col" class="px-5">Editar</th>
                     </tr>
                 </thead>
-                <tbody id="cuerpoTablaUsuario">
+                <tbody id="cuerpoTablamulta">
                         
                 </tbody>
             </table>
@@ -127,7 +127,7 @@
     <div class="modal-dialog modal-dialog-scrollable" >
         <div class="modal-content" style="width: 800px; ">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar usuario</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar multa</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" >
@@ -136,26 +136,30 @@
                     <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
                 </div>
                 <div class="col-6">
-                    <label for="nombres" class="form-label">Nombres completos*</label>
-                    <input type="text" class="form-control" name="nombres" id="nombres" step="1" onfocusout="validarNombreusuario(this);" >
+                    <label for="fecha_multa" class="form-label">Fecha de la multa*</label>
+                    <input type="date" class="form-control" name="fecha_multa" id="fecha_multa" step="1" onfocusout="validarNombreusuario(this);" >
                     <input type="hidden" id="id" step="1">
                 </div>
                 <div class="col-6">
-                    <label for="direccion" class="form-label">Dirección*</label>
-                    <input type="text" class="form-control" name="direccion" id="direccion" >
+                    <label for="usuario_multado" class="form-label">Usuario multado*</label>
+                    <input type="text" class="form-control" name="usuario_multado" id="direccion" >
                 </div>
                 <div class="col-6">
-                    <label for="correo" class="form-label">Correo*</label>
-                    <input type="text" class="form-control" name="correo" id="correo"  >
+                    <label for="prestamo" class="form-label">Prestamo*</label>
+                    <input type="text" class="form-control" name="prestamo" id="prestamo"  >
                 </div>
                 <div class="col-6">
-                    <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
-                    <input type="text" class="form-control" name="tipoUsuario" id="tipoUsuario" >
+                    <label for="valor_multa" class="form-label">Valor de la multa*</label>
+                    <input type="number" class="form-control" name="valor_multa" id="valor_multa" >
+                </div>
+                <div class="col-6">
+                    <label for="estado_multa" class="form-label">Estado de la multa*</label>
+                    <input type="number" class="form-control" name="estado_multa" id="estado_multa" >
                 </div>
                                   
                   </div> 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="updateUsuario();">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="updateMulta();">Guardar</button>
                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
           </div>

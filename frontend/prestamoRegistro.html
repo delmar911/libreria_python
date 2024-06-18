@@ -29,7 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/estilos.css" />
-    <script src="js/ventas.js"></script>
+    <script src="js/prestamo.js"></script>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
@@ -79,13 +79,20 @@
                           <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
                       </div>
                   </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Venta</a>
-                        <div class="dropdown-menu bg-light m-0">
-                            <a href="./ventasRegistro.html" class="dropdown-item">Registro de ventas</a>
-                            <a href="./ventasLista.html" class="dropdown-item">Lista de ventas</a>
-                        </div>
+                  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
+                    <div class="dropdown-menu bg-light m-0">
+                      <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
+                        <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
                     </div>
+                  </div>
+                  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
+                    <div class="dropdown-menu bg-light m-0">
+                        <a href="./multaRegistro.html" class="dropdown-item">Registro de Multa</a>
+                        <a href="./multaLista.html" class="dropdown-item">Lista de Multa</a>
+                    </div>
+                </div>
       
                 </div>
             </div>
@@ -93,32 +100,42 @@
       </div>
   </div>
     <!-- Navbar End -->
-    <h2 class="registrarPacienteT">Registrar ventas</h2>
+    <h2 class="registrarPacienteT">Registrar prestamo</h2>
     <!-- from Star(fromulario inicio) -->
     <div class="" style="padding-left: 21rem;">
         <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
     </div><!-- <form class="row g-3 needs-validation" novalidate> -->
     <div class="row justify-content-center" >
       <div class="col-md-4">
-        <label for="total" class="form-label">Total</label>
-        <input type="number" class="form-control" name="total" id="total" step="1" />
+        <label for="fecha_prestamo" class="form-label">Fecha del prestamo</label>
+        <input type="date" class="form-control" name="fecha_prestamo" id="fecha_prestamo" step="1" />
       </div>
       <div class="col-md-4">
-        <label for="fecha_venta" class="form-label">Fecha de la venta</label>
+        <label for="fecha_devolucion" class="form-label">Fecha de la devolución</label>
         <input
           type="datetime-local"
           class="form-control"
-          name="fecha_venta"
-          id="fecha_venta"
-          step="1" onfocusout="validartotalventas(this);"
+          name="fecha_devolucion"
+          id="fecha_devolucion"
+          step="1" onfocusout="validarfecha_prestamoprestamo(this);"
           />
           <!-- onfocusout="validarNumeroIdentificacion(this);"  -->
       </div>
       <div class="col-md-4">
-        <label for="cliente" class="form-label">Cliente</label>
-        <select name="cliente" id="cliente" class="form-select">
+        <label for="usuario" class="form-label">Usuario</label>
+        <select name="usuario" id="usuario" class="form-select">
           <option selected disabled value="">
-            Seleccione el cliente
+            Seleccione el usuario
+          </option>
+          <option value=""></option>
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="libro" class="form-label">Libro</label>
+        <select name="libro" id="libro" class="form-select">
+          <option selected disabled value="">
+            Seleccione el libro
           </option>
           <option value=""></option>
           <option value=""></option>
@@ -126,19 +143,19 @@
       </div>
      
       <div class="col-md-4">
-        <label for="estado" class="form-label">Estado*</label>
-        <select name="estado" id="estado" class="form-select">
+        <label for="estado_prestamo" class="form-label">Estado*</label>
+        <select name="estado_prestamo" id="estado_prestamo" class="form-select">
           <option selected disabled value="">
             ¿En qué estado se encuentra?...
           </option> 
-          <option value="Activo">Activo</option>
-          <option value="Inactivo">Inactivo</option>
+          <option value=""></option>
+          <option value=""></option>
         </select>
       </div>
       <div class="col-12" style=" display: flex;justify-content: center;">
         <button
           class="btn btn-success"
-          onclick="registrarventas();"
+          onclick="registrarPrestamo();"
           type="button" style="width: 200px;"
         >
           Registrar
