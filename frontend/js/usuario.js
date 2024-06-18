@@ -250,7 +250,7 @@ function updateUsuario() {
 function consultarUsuarioID(id){
     //alert(id);
     $.ajax({
-        url:url+id,
+        url:url+id+"/",
         type:"GET",
         success: function(result){
             console.log(result);

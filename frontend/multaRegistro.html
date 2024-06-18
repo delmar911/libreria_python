@@ -22,7 +22,7 @@
         <!-- Favicon -->
         <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
 </head>
-<body>
+<body onload="CargarFormulario();">
 <!-- Brand Start (Inicio de marca) -->
         <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
             <div class="container p-4">
@@ -95,27 +95,46 @@
                     <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
                 </div>
 
-            <div class="row" style="place-content: center; gap: 20px;">
+                    <div class="row" style="place-content: center; gap: 20px;">
+                        <div class="col-md-4" style="margin-left: 0;">
+                            <label for="fecha_multa" class="form-label">Fecha de la multa*</label>
+                            <input type="date" class="form-control" name="fecha_multa" id="fecha_multa">
+                        </div>
                     <div class="col-md-4" style="margin-left: 0;">
-                        <label for="nombres" class="form-label">Nombres completos*</label>
-                        <input type="text" class="form-control" name="nombres" id="nombres" step="1"  >
+                        <label for="usuario_multado" class="form-label">Usuario Multado*</label>
+                        <select name="usuario_multado" id="usuario_multado" class="form-select">
+                            <option selected disabled value="">
+                                Seleccione el tipo de usuario
+                            </option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
                     </div>
                     <div class="col-md-4" style="margin-left: 0;">
-                        <label for="direccion" class="form-label">Dirección*</label>
-                        <input type="text" class="form-control" name="direccion" id="direccion" >
+                        <label for="prestamo" class="form-label">Prestamo*</label>
+                        <select name="prestamo" id="prestamo" class="form-select">
+                            <option selected disabled value="">
+                                Seleccione el tipo de usuario
+                            </option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
                     </div>
                     <div class="col-md-4" style="margin-left: 0;">
-                        <label for="cantidad" class="form-label">Correo*</label>
-                        <input type="number" class="form-control" name="correo" id="correo">
+                        <label for="valor_multa" class="form-label">Valor multa*</label>
+                        <input type="number" class="form-control" name="valor_multa" id="valor_multa">
                     </div>
+
+                   
                     <div class="col-md-4" style="margin-left: 0;">
-                        <label for="tipoUsuario" class="form-label">Tipo de usuario*</label>
-                        <select name="tipoUsuario" id="tipoUsuario" class="form-select">
-                        <option selected disabled value="">
-                            Seleccione el tipo de usuario
-                        </option>
-                        <option value=""></option>
-                        <option value=""></option>
+                        <label for="estado_multa" class="form-label">Estado de la multa*</label>
+                        <select name="estado_multa" id="estado_multa" class="form-select">
+                            <option selected disabled value="">
+                                Seleccione el tipo de usuario
+                            </option>
+                            <option value=""></option>
+                            <option value=""></option>
+                         </select>
                     </div>
                     <div class="col-12" style=" display: flex;justify-content: center;padding-bottom: 3%; gap: 20px;">
                     <!-- <div class="col-12" style=" display: flex;justify-content: center;"> -->

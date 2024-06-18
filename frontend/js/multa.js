@@ -28,7 +28,7 @@ function listarmulta() {
                 celdaId.innerText = result[i]["id"];
                 celdaValorMulta.innerText = result[i]["valor_multa"];
                 celdausuario_multado.innerText = result[i]["usuario_multado"]["nombres"];
-                celdaprestamo.innerText = result[i]["prestamo"]["titulo"];
+                celdaprestamo.innerText = result[i]["prestamo"]["prestamo"];
                 celdaestado_multa.innerText = result[i]["estado_multa"];
                 
                 //agregando a los td a su respectivo th y agregandolos a la fila
@@ -47,7 +47,7 @@ function listarmulta() {
 
                 botonEditarventas.onclick=function(e){
                     $('#exampleModal').modal('show');
-                    consultarventasID(this.value); 
+                    consultarmultaID(this.value); 
                 }
                 botonEditarventas.className= "btn btn-primary"
 
@@ -150,63 +150,64 @@ function validarNombreusuario_multado(campo){
 function CargarFormulario() {
   cargarusuario_multado();
   cargarprestamo();
+  cargarMulta();
 }
 //funcion para traer los usuario_multados
 function cargarusuario_multado() {
-  let urlusuario_multado = "http://127.0.0.1:8000/libreria/api/v1/usuario/";
+  let urlusuario = "http://127.0.0.1:8000/libreria/api/v1/usuarios/";
 
   $.ajax({
-    url: urlusuario_multado,
+    url: urlusuario,
     type: "GET",
     success: function (result) {
       let usuario_multado = document.getElementById("usuario_multado");
       usuario_multado.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
-        let usuario_multado = document.createElement("option");
-        usuario_multado.value = result[i]["id"];
-        usuario_multado.innerText = nombre_completo_usuario_multado =
+        let usuario = document.createElement("option");
+        usuario.value = result[i]["id"];
+        usuario.innerText = nombre_completo_usuario =
           result[i]["nombres"]
-        usuario_multado.appendChild(usuario_multado);
+          usuario_multado.appendChild(usuario);
         
       }
     },
   });
 }
 function cargarprestamo() {
-  let urlprestamo = "http://127.0.0.1:8000/libreria/api/v1/prestamos/";
+  let urlprestamo = "http://127.0.0.1:8000/libreria/api/v1/prestamo/";
 
   $.ajax({
     url: urlprestamo,
     type: "GET",
     success: function (result) {
-      let prestamo = document.getElementById("prestamo");
-      prestamo.innerHTML = "";
+      let prestamo_multa = document.getElementById("prestamo");
+      prestamo_multa.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
-        let prestamo = document.createElement("option");
-        prestamo.value = result[i]["id"];
-        prestamo.innerText = prestamo =
-          result[i]["nombres"]
-          prestamo.appendChild(prestamo);
+        let estado_prestamo = document.createElement("option");
+        estado_prestamo.value = result[i]["id"];
+        estado_prestamo.innerText = prestamo_estado =
+          result[i]["estado_prestamo"]
+          prestamo_multa.appendChild(estado_prestamo);
         
       }
     },
   });
 }
-function cargarEstado() {
+function cargarMulta() {
   let urlmulta = "http://127.0.0.1:8000/libreria/api/v1/multa/";
 
   $.ajax({
     url: urlmulta,
     type: "GET",
     success: function (result) {
-      let estado_multa = document.getElementById("estado_multa");
-      estado_multa.innerHTML = "";
+      let multaestado = document.getElementById("estado_multa");
+      multaestado.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
         let estado_multa = document.createElement("option");
         estado_multa.value = result[i]["id"];
-        estado_multa.innerText = estado_multa =
-          result[i]["nombres"]
-          estado_multa.appendChild(estado_multa);
+        estado_multa.innerText = estadoMulta =
+          result[i]["estado_multa"]
+          multaestado.appendChild(estado_multa);
         
       }
     },

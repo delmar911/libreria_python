@@ -50,7 +50,7 @@ function listarPrestamo() {
 
                 botonEditarventas.onclick=function(e){
                     $('#exampleModal').modal('show');
-                    consultarventasID(this.value); 
+                    consultarPrestamoID(this.value); 
                 }
                 botonEditarventas.className= "btn btn-primary"
 
@@ -172,6 +172,7 @@ function validarfecha_prestamoventas(Numero) {
 function CargarFormulario() {
   cargarUsuario();
   cargarLibro();
+  cargarEstado();
 }
 //funcion para traer los usuarios
 function cargarUsuario() {
@@ -181,14 +182,14 @@ function cargarUsuario() {
     url: urlusuario,
     type: "GET",
     success: function (result) {
-      let usuario = document.getElementById("usuario");
-      usuario.innerHTML = "";
+      let usuario_prestamo = document.getElementById("usuario_prestamo");
+      usuario_prestamo.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
         let usuario = document.createElement("option");
         usuario.value = result[i]["id"];
         usuario.innerText = nombre_completo_usuario =
           result[i]["nombres"]
-        usuario.appendChild(usuario);
+          usuario_prestamo.appendChild(usuario);
         
       }
     },
@@ -201,14 +202,13 @@ function cargarLibro() {
     url: urlLibro,
     type: "GET",
     success: function (result) {
-      let libro = document.getElementById("libro");
-      libro.innerHTML = "";
+      let libro_prestamo = document.getElementById("libro_prestamo");
+      libro_prestamo.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
         let libro = document.createElement("option");
         libro.value = result[i]["id"];
-        libro.innerText = libro =
-          result[i]["nombres"]
-          libro.appendChild(libro);
+        libro.innerText = libro_titulo = result[i]["titulo"]
+          libro_prestamo.appendChild(libro);
         
       }
     },
@@ -224,11 +224,11 @@ function cargarEstado() {
       let estado_prestamo = document.getElementById("estado_prestamo");
       estado_prestamo.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
-        let estado_prestamo = document.createElement("option");
-        estado_prestamo.value = result[i]["id"];
-        estado_prestamo.innerText = estado_prestamo =
-          result[i]["nombres"]
-          estado_prestamo.appendChild(estado_prestamo);
+        let estado = document.createElement("option");
+        estado.value = result[i]["id"];
+        estado.innerText = prestamo_estado =
+          result[i]["estado_prestamo"]
+          estado_prestamo.appendChild(estado);
         
       }
     },
