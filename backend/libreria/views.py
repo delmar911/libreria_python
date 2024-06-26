@@ -6,11 +6,16 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from .serializer import LibroSerializer, MultaSerializer, PrestamoSerializer, UsuarioSerializer
 from rest_framework import filters
+from rest_framework.views import Response
 
 from .models import libro, multa, prestamo
 from .models import usuario
 # from django_filters.rest_framework import filters
 
+
+def tipoUsuario():
+    
+    return render ("listaTipoUsuario")
 
 # Create your views here.
 #se crea la clase view por cada modelo

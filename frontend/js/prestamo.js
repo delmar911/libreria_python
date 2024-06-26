@@ -1,5 +1,8 @@
 //se almacena la url de la api
-let url="http://127.0.0.1:8000/libreria/api/v1/prestamo/";
+let url="http://127.0.0.1:8000/libreria/api/v1/prestamo/";//se debe cambiar la url cuando de conecta por movil
+
+
+
 function listarPrestamo() {
     var busqueda = document.getElementById("buscar").value;
     var urlBusqueda = url;
@@ -13,6 +16,7 @@ function listarPrestamo() {
             console.log(result);
             let curpoTablaprestamo = document.getElementById("curpoTablaprestamo");
             curpoTablaprestamo.innerHTML="";
+            console.log(result);
             for (let i = 0; i < result.length; i++) {
                //se crea una etiqueta tr por cada registro
                 let trRegistro = document.createElement("tr");//fila por cada registro de la tabla
@@ -20,7 +24,7 @@ function listarPrestamo() {
                 let celdafecha_prestamo = document.createElement("td");
                 let celdaDevolucion = document.createElement("td");
                 let celdausuario = document.createElement("td");
-                let celdaLibro = document.createElement("tr");
+                let celdaLibro = document.createElement("td");
                 let celdaestado_prestamo = document.createElement("td");
                 // let celdaEditar = document.createElement("td");
                 
@@ -29,10 +33,10 @@ function listarPrestamo() {
                 celdaId.innerText = result[i]["id"];
                 celdafecha_prestamo.innerText= result[i]["fecha_prestamo"];
                 celdaDevolucion.innerText = result[i]["fecha_devolucion"];
-                celdausuario.innerText = result[i]["usuario"]["nombres"];
-                celdaLibro.innerText = result[i]["libro"]["titulo"];
+                obtenerNombreUsuario(result[i]["usuario"], celdausuario);
+                obtenerTituloLibro(result[i]["libro"], celdaLibro);
                 celdaestado_prestamo.innerText = result[i]["estado_prestamo"];
-                
+               
                 //agregando a los td a su respectivo th y agregandolos a la fila
 
                 trRegistro.appendChild(celdaId);
@@ -50,6 +54,7 @@ function listarPrestamo() {
 
                 botonEditarventas.onclick=function(e){
                     $('#exampleModal').modal('show');
+                    CargarFormulario();
                     consultarPrestamoID(this.value); 
                 }
                 botonEditarventas.className= "btn btn-primary"
@@ -77,6 +82,33 @@ function listarPrestamo() {
         }
     })
  
+}
+function obtenerNombreUsuario(id, celdaUsuario) {
+  // Hacer una petición AJAX para obtener el nombre del usuario
+  $.ajax({
+      url: 'http://127.0.0.1:8000/libreria/api/v1/usuarios'+ '/' + id + '/',  // Ajusta la URL según tu configuración
+      type: 'GET',
+      success: function (usuario) {
+          celdaUsuario.innerText = usuario.nombres;
+      },
+      error: function (error) {
+          console.error('Error obteniendo nombre de usuario: ', error);
+      }
+  });
+}
+
+function obtenerTituloLibro(id, celdaLibro) {
+  // Hacer una petición AJAX para obtener el título del libro
+  $.ajax({
+      url: 'http://127.0.0.1:8000/libreria/api/v1/libros'+ '/' + id + '/',  // Ajusta la URL según tu configuración
+      type: 'GET',
+      success: function (libro) {
+          celdaLibro.innerText = libro.titulo;
+      },
+      error: function (error) {
+          console.error('Error obteniendo título de libro: ', error);
+      }
+  });
 }
 
 //Paso para crear el registro de un médico ****
@@ -127,52 +159,39 @@ function registrarPrestamo() {
 
 //Paso para que el usuario se registre y llene todos los datos correctamente :D****
 function validarCampos() {
-  var fecha_prestamo = document.getElementById("fecha_prestamo");
-  let fecha_devolucion = document.getElementById("fecha_devolucion");
+  
   var usuario = document.getElementById("usuario"); 
 
 
-  return validarfecha_prestamoventas(fecha_prestamo)
-       && validarNombreusuario(usuario);
+  return  validarNombreusuario(usuario);
 }
 
-function validarNombreusuario(campo){
-  var valido=true;
-  if(campo.value.length < 3 || campo.value.length > 45){
-      valido=false;
+function validarNombreusuario(campo) {
+  var valido = true;
+  var valorSeleccionado = campo.value;
+
+  // Verificar si se ha seleccionado alguna opción (ejemplo básico)
+  if (valorSeleccionado === "" || valorSeleccionado === null) {
+    valido = false;
   }
 
+  // Cambiar clases según la validez
   if (valido) {
-      campo.className = "form-control is-valid"
+    campo.className = "form-control is-valid";
+  } else {
+    campo.className = "form-control is-invalid";
   }
-  else{
-      campo.className = "form-control is-invalid"
-  }
+
   return valido;
 }
 
 
-function validarfecha_prestamoventas(Numero) {
-  
-  let valor = Numero.value;
-  let valido = true;
-  if (valor.length <= 0  ) {
-      valido = false
-  }
 
-  if (valido) {
-      Numero.className = "form-control is-valid"
-  }
-  else{
-      Numero.className = "form-control is-invalid"
-  }
-  return valido;
-}
 
 function CargarFormulario() {
   cargarUsuario();
   cargarLibro();
-  cargarEstado();
+
 }
 //funcion para traer los usuarios
 function cargarUsuario() {
@@ -182,8 +201,8 @@ function cargarUsuario() {
     url: urlusuario,
     type: "GET",
     success: function (result) {
-      let usuario_prestamo = document.getElementById("usuario_prestamo");
-      usuario_prestamo.innerHTML = "";
+      let usuario_prestamo = document.getElementById("usuario");
+      usuario_prestamo.innerHTML = '<option selected disabled value="">Seleccione el usuario</option>';
       for (let i = 0; i < result.length; i++) {
         let usuario = document.createElement("option");
         usuario.value = result[i]["id"];
@@ -202,42 +221,24 @@ function cargarLibro() {
     url: urlLibro,
     type: "GET",
     success: function (result) {
-      let libro_prestamo = document.getElementById("libro_prestamo");
-      libro_prestamo.innerHTML = "";
+      let libro_prestamo = document.getElementById("libro");
+      libro_prestamo.innerHTML = '<option selected disabled value="">Seleccione el libro</option>';
       for (let i = 0; i < result.length; i++) {
         let libro = document.createElement("option");
         libro.value = result[i]["id"];
         libro.innerText = libro_titulo = result[i]["titulo"]
           libro_prestamo.appendChild(libro);
-        
+      
       }
     },
   });
 }
-function cargarEstado() {
-  let urlPrestamo = "http://127.0.0.1:8000/libreria/api/v1/prestamo/";
 
-  $.ajax({
-    url: urlPrestamo,
-    type: "GET",
-    success: function (result) {
-      let estado_prestamo = document.getElementById("estado_prestamo");
-      estado_prestamo.innerHTML = "";
-      for (let i = 0; i < result.length; i++) {
-        let estado = document.createElement("option");
-        estado.value = result[i]["id"];
-        estado.innerText = prestamo_estado =
-          result[i]["estado_prestamo"]
-          estado_prestamo.appendChild(estado);
-        
-      }
-    },
-  });
-}
+
 
 
 //Cuando le damos click al boton de guardar, este llamara a la function updateventas por medio del onclick******
-function updatePrestamos() {
+function updatePrestamo() {
     var id = document.getElementById("id").value;
 
     let formData = {
@@ -245,14 +246,15 @@ function updatePrestamos() {
         "fecha_devolucion": document.getElementById("fecha_devolucion").value,
         "usuario": document.getElementById("usuario").value,
         "libro": document.getElementById("libro").value,
-        "estado_prestamo": document.getElementById("estado_prestamo").value
+        "estado_prestamo": document.getElementById("estado_prestamo").value,
+       
     };
 
 
     //Cuando estamos actualizando los datos, y lo hacemos correctamente Aparecerá la Alerta EXCELENTE *****
     if(validarCampos()){
     $.ajax({
-        url: url + id,
+        url: url + id+"/",
         type: "PUT",
         data: formData,
         success: function(result) {
@@ -293,9 +295,10 @@ function consultarPrestamoID(id){
             document.getElementById("id").value=result["id"];
             document.getElementById("fecha_prestamo").value=result["fecha_prestamo"];
             document.getElementById("fecha_devolucion").value=result["fecha_devolucion"];
-            document.getElementById("usuario").value=result["usuario"];
-            document.getElementById("libro").value = result["libro"]
-            document.getElementById("estado_prestamo").value=result["estado_prestamo"];
+            document.getElementById("usuario").value=result["usuario"]["id"];
+            document.getElementById("libro").value = result["libro"]["id"];
+            document.getElementById("estado_prestamo").value = result["estado_prestamo"];
+            
         }
     });
 }

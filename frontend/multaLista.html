@@ -18,65 +18,64 @@
 
         <link rel="stylesheet" href="./css/btn.css">
         <link rel="stylesheet" href="css/estilos.css">
-        <script src="./js/multa.js"></script>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
-  
-</head>
-<body onload="listarmulta();">
-   <!-- Brand Start (Inicio de marca) -->
-    <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
-        <div class="container p-4">
-            <div class="d-flex align-items-center justify-content-center">
-                <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
-                -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
+        
+    </head>
+    <body onload="listarmulta();">
+        <!-- Brand Start (Inicio de marca) -->
+        <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
+            <div class="container p-4">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
+                        -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Brand End -->
+            <!-- Brand End -->
 
-
-    <!-- Navbar Start(Inicio de la barra de navegación) -->
-    <div class="container-fluid sticky-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
-                <a href="index.html" class="navbar-brand d-lg-none">
-                    <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
-                </a>
-
-<!--                 
-                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-
-                <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
-                    <div class="navbar-nav" style="margin-left: 2%;">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
-
-                                <div class="dropdown-menu bg-light m-0">                                
-                                    <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
-                                    <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
+            
+            <!-- Navbar Start(Inicio de la barra de navegación) -->
+            <div class="container-fluid sticky-top">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
+                        <a href="index.html" class="navbar-brand d-lg-none">
+                            <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
+                        </a>
+                        
+                        <!--                 
+                            <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                            data-bs-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button> -->
+                        
+                        <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
+                            <div class="navbar-nav" style="margin-left: 2%;">
+                                <a href="index.html" class="nav-item nav-link active">Home</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
+                                    
+                                    <div class="dropdown-menu bg-light m-0">                                
+                                        <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
+                                        <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Usuario</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
-                                    <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
+                                
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Usuario</a>
+                                    <div class="dropdown-menu bg-light m-0">
+                                        <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
+                                        <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
-                                    <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
+                                
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
+                                    <div class="dropdown-menu bg-light m-0">
+                                        <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
+                                        <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
+                                    </div>
                                 </div>
-                            </div>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
                                 <div class="dropdown-menu bg-light m-0">
@@ -84,8 +83,8 @@
                                     <a href="./multaLista.html" class="dropdown-item">Lista de Multa</a>
                                 </div>
                             </div>
-
-                        
+                            
+                            
                         </div>
                     </div>
                 </nav>
@@ -93,80 +92,81 @@
         </div>
         <!-- Navbar End -->
         <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
-                <h2 class="registrarPacienteT pt-3 pb-4">Lista de multas</h2>
+            <h2 class="registrarPacienteT pt-3 pb-4">Lista de multas</h2>
             <div class="container">
                 <!-- star table -->
                 <div class="row" style="margin-right: 0px; justify-content: center;">
                     <div class="col-4">
                         <div class="input-group mb-3 ">
-                        <input type="text" class="form-control me-2 rounded-start-3" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarmulta();">Buscar</button>
-                    </div>
-                </div>                
-            </div>
-            
-
-            <table class="table table-hover">
-                <thead class="table-light justify-content-center">
-                    <tr>
-                        <th scope="col" class="px-5">Código multa</th>
-                        <th scope="col" class="px-5">Usuario multado</th>
-                        <th scope="col" class="px-5">Prestamo</th>
-                        <th scope="col" class="px-5">Valor multa</th>
-                        <th scope="col" class="px-5">Estado multa</th>
-                        <th scope="col" class="px-5">Editar</th>
+                            <input type="text" class="form-control me-2 rounded-start-3" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarmulta();">Buscar</button>
+                        </div>
+                    </div>                
+                </div>
+                
+                
+                <table class="table table-hover">
+                    <thead class="table-light justify-content-center">
+                        <tr>
+                            <th scope="col" class="px-5">Código multa</th>
+                            <th scope="col" class="px-5">Usuario multado</th>
+                            <th scope="col" class="px-5">Prestamo</th>
+                            <th scope="col" class="px-5">Valor multa</th>
+                            <th scope="col" class="px-5">Estado multa</th>
+                            <th scope="col" class="px-5">Editar</th>
                     </tr>
                 </thead>
                 <tbody id="cuerpoTablamulta">
-                        
+                    
                 </tbody>
             </table>
         </div>
         <!-- Modal Registro Persona -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
-    <div class="modal-dialog modal-dialog-scrollable" >
-        <div class="modal-content" style="width: 800px; ">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar multa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" >
-             <div class="row" >
-                <div class="col-6">
-                    <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
-                </div>
-                <div class="col-6">
-                    <label for="fecha_multa" class="form-label">Fecha de la multa*</label>
-                    <input type="date" class="form-control" name="fecha_multa" id="fecha_multa" step="1" onfocusout="validarNombreusuario(this);" >
-                    <input type="hidden" id="id" step="1">
-                </div>
-                <div class="col-6">
-                    <label for="usuario_multado" class="form-label">Usuario multado*</label>
-                    <input type="text" class="form-control" name="usuario_multado" id="usuario_multado" >
-                </div>
-                <div class="col-6">
-                    <label for="prestamo" class="form-label">Prestamo*</label>
-                    <input type="text" class="form-control" name="prestamo" id="prestamo"  >
-                </div>
-                <div class="col-6">
-                    <label for="valor_multa" class="form-label">Valor de la multa*</label>
-                    <input type="number" class="form-control" name="valor_multa" id="valor_multa" >
-                </div>
-                <div class="col-6">
-                    <label for="estado_multa" class="form-label">Estado de la multa*</label>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="padding-right: 300px;">
+            <div class="modal-dialog modal-dialog-scrollable" >
+                <div class="modal-content" style="width: 800px; ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modificar multa</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" >
+                        <div class="row" >
+                            <div class="col-6">
+                                <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+                            </div>
+                            <div class="col-6">
+                                <label for="fecha_multa" class="form-label">Fecha de la multa*</label>
+                                <input type="date" class="form-control" name="fecha_multa" id="fecha_multa" step="1" onfocusout="validarNombreusuario(this);" >
+                                <input type="hidden" id="id" step="1">
+                            </div>
+                            <div class="col-6">
+                                <label for="usuario_multado" class="form-label">Usuario multado*</label>
+                                <input type="text" class="form-control" name="usuario_multado" id="usuario_multado" >
+                            </div>
+                            <div class="col-6">
+                                <label for="prestamo" class="form-label">Prestamo*</label>
+                                <input type="text" class="form-control" name="prestamo" id="prestamo"  >
+                            </div>
+                            <div class="col-6">
+                                <label for="valor_multa" class="form-label">Valor de la multa*</label>
+                                <input type="number" class="form-control" name="valor_multa" id="valor_multa" >
+                            </div>
+                            <div class="col-6">
+                                <label for="estado_multa" class="form-label">Estado de la multa*</label>
                     <input type="number" class="form-control" name="estado_multa" id="estado_multa" >
                 </div>
-                                  
-                  </div> 
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="updateMulta();">Guardar</button>
-                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                </div>
-          </div>
-        </div>    
-    </div>
+                
+            </div> 
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" onclick="updateMulta();">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>    
+</div>
 </div>  
-    </body>
+</body>
+<script src="./js/multa.js"></script>
 </html>
 
 

@@ -17,65 +17,64 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <link rel="stylesheet" href="css/estilos.css">
-        <script src="./js/multa.js"></script>
-
+        
         <!-- Favicon -->
         <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
-</head>
-<body onload="CargarFormulario();">
-<!-- Brand Start (Inicio de marca) -->
+    </head>
+    <body onload="CargarFormulario();">
+        <!-- Brand Start (Inicio de marca) -->
         <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
             <div class="container p-4">
                 <div class="d-flex align-items-center justify-content-center">
                     <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
-                    -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
+                        -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Brand End -->
-    
-    
-        <!-- Navbar Start(Inicio de la barra de navegación) -->
-        <div class="container-fluid sticky-top">
+            <!-- Brand End -->
+            
+            
+            <!-- Navbar Start(Inicio de la barra de navegación) -->
+            <div class="container-fluid sticky-top">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
                     <a href="index.html" class="navbar-brand d-lg-none">
                         <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
                     </a>
                     <!-- <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
-                        data-bs-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> -->
-    
-                    <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
-                        <div class="navbar-nav" style="margin-left: 2%;">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
-                                    <div class="dropdown-menu bg-light m-0">                                
-                                        <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
-                                        <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
-                                    </div>
-                                </div>
-
-                                <div class="nav-item dropdown">
+                    data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                
+                <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
+                    <div class="navbar-nav" style="margin-left: 2%;">
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
+                            <div class="dropdown-menu bg-light m-0">                                
+                                <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
+                                <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
+                            </div>
+                        </div>
+                        
+                        <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Usuario</a>
                                     <div class="dropdown-menu bg-light m-0">
                                         <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
                                         <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
                                     </div>
                                 </div>
-                            
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
-                                <div class="dropdown-menu bg-light m-0">
-                                    <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
-                                    <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
+                                
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
+                                    <div class="dropdown-menu bg-light m-0">
+                                        <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
+                                        <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
+                                <div class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
                                 <div class="dropdown-menu bg-light m-0">
                                     <a href="./multaRegistro.html" class="dropdown-item">Registro de Multa</a>
                                     <a href="./multaLista.html" class="dropdown-item">Lista de Multa</a>
@@ -91,58 +90,59 @@
         <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
             <h1 class="registrarPacienteT pt-3">Registrar multa</h1>
             <!-- from Star(fromulario inicio) -->
-                <div class="d-flex justify-content-center">
-                    <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+            <div class="d-flex justify-content-center">
+                <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+            </div>
+            
+            <div class="row" style="place-content: center; gap: 20px;">
+                <div class="col-md-4" style="margin-left: 0;">
+                    <label for="fecha_multa" class="form-label">Fecha de la multa*</label>
+                    <input type="date" class="form-control" name="fecha_multa" id="fecha_multa">
                 </div>
-
-                    <div class="row" style="place-content: center; gap: 20px;">
-                        <div class="col-md-4" style="margin-left: 0;">
-                            <label for="fecha_multa" class="form-label">Fecha de la multa*</label>
-                            <input type="date" class="form-control" name="fecha_multa" id="fecha_multa">
-                        </div>
-                    <div class="col-md-4" style="margin-left: 0;">
-                        <label for="usuario_multado" class="form-label">Usuario Multado*</label>
-                        <select name="usuario_multado" id="usuario_multado" class="form-select">
-                            <option selected disabled value="">
-                                Seleccione el tipo de usuario
-                            </option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
-                    </div>
-                    <div class="col-md-4" style="margin-left: 0;">
-                        <label for="prestamo" class="form-label">Prestamo*</label>
-                        <select name="prestamo" id="prestamo" class="form-select">
-                            <option selected disabled value="">
-                                Seleccione el tipo de usuario
-                            </option>
-                            <option value=""></option>
-                            <option value=""></option>
-                        </select>
+                <div class="col-md-4" style="margin-left: 0;">
+                    <label for="usuario_multado" class="form-label">Usuario Multado*</label>
+                    <select name="usuario_multado" id="usuario_multado" class="form-select">
+                        <option selected disabled value="">
+                            Seleccione el tipo de usuario
+                        </option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="col-md-4" style="margin-left: 0;">
+                    <label for="prestamo" class="form-label">Prestamo*</label>
+                    <select name="prestamo" id="prestamo" class="form-select">
+                        <option selected disabled value="">
+                            Seleccione el tipo de prestamo
+                        </option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
                     </div>
                     <div class="col-md-4" style="margin-left: 0;">
                         <label for="valor_multa" class="form-label">Valor multa*</label>
                         <input type="number" class="form-control" name="valor_multa" id="valor_multa">
                     </div>
-
-                   
+                    
+                    
                     <div class="col-md-4" style="margin-left: 0;">
                         <label for="estado_multa" class="form-label">Estado de la multa*</label>
                         <select name="estado_multa" id="estado_multa" class="form-select">
                             <option selected disabled value="">
-                                Seleccione el tipo de usuario
+                                Seleccione el estado de la multa
                             </option>
-                            <option value=""></option>
-                            <option value=""></option>
-                         </select>
+                            <option value="pendiente">pendiente</option>
+                            <option value="pagado">pagado</option>
+                        </select>
                     </div>
                     <div class="col-12" style=" display: flex;justify-content: center;padding-bottom: 3%; gap: 20px;">
-                    <!-- <div class="col-12" style=" display: flex;justify-content: center;"> -->
-                        <button class="btn btn-warining" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
-                        <button class="btn btn-dark" type="button" onclick="limpiar();" style="width: 200px;">Limpiar</button>
+                        <!-- <div class="col-12" style=" display: flex;justify-content: center;"> -->
+                            <button class="btn btn-warining" type="button" onclick="registrarUsuario();" style="width: 200px;">Registrar</button>
+                            <button class="btn btn-dark" type="button" onclick="limpiar();" style="width: 200px;">Limpiar</button>
+                        </div>
                     </div>
-            </div>
-        </div>
-        <!-- from End(fromulario final) -->
-</body>
+                </div>
+                <!-- from End(fromulario final) -->
+            </body>
+            <script src="./js/multa.js"></script>
 </html>

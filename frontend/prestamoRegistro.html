@@ -29,73 +29,72 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="css/estilos.css" />
-    <script src="js/prestamo.js"></script>
-
+    
     <!-- Favicon -->
     <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
-  
-</head>
-<body onload="CargarFormulario();">
-   <!-- Brand Start (Inicio de marca) -->
+    
+  </head>
+  <body onload="CargarFormulario();">
+    <!-- Brand Start (Inicio de marca) -->
     <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
-        <div class="container p-4">
-            <div class="d-flex align-items-center justify-content-center">
-                <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
-                -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
-            </div>
+      <div class="container p-4">
+        <div class="d-flex align-items-center justify-content-center">
+          <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
+            -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
+          </div>
         </div>
-    </div>
-    <!-- Brand End -->
-
-
-    <!-- Navbar Start(Inicio de la barra de navegación) -->
-    <div class="container-fluid sticky-top">
+      </div>
+      <!-- Brand End -->
+      
+      
+      <!-- Navbar Start(Inicio de la barra de navegación) -->
+      <div class="container-fluid sticky-top">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
-                <a href="index.html" class="navbar-brand d-lg-none">
-                    <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
-                </a>
-
-<!--                 
-                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
-
+          <nav class="navbar navbar-expand-lg navbar-light bg-white py-lg-0 px-lg-3" style="border-radius: 70px;">
+            <a href="index.html" class="navbar-brand d-lg-none">
+              <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
+            </a>
+            
+            <!--                 
+              <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse">
+              <span class="navbar-toggler-icon"></span>
+            </button> -->
+            
                 <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
-                    <div class="navbar-nav" style="margin-left: 2%;">
+                  <div class="navbar-nav" style="margin-left: 2%;">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
                       <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Libros</a>
                       <div class="dropdown-menu bg-light m-0">                                
-                          <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
-                          <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
+                        <a href="./libroRegistro.html" class="dropdown-item">Registro de libros</a>
+                        <a href="./libroLista.html" class="dropdown-item">Lista de libros</a>
                       </div>
                     </div>
                     <div class="nav-item dropdown">
                       <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Usuario</a>
                       <div class="dropdown-menu bg-light m-0">
-                          <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
-                          <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
+                        <a href="./usuarioRegistro.html" class="dropdown-item">Registro de usuarios</a>
+                        <a href="./usuarioLista.html" class="dropdown-item">Lista de usuarios</a>
                       </div>
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
-                    <div class="dropdown-menu bg-light m-0">
-                      <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Prestamo</a>
+                      <div class="dropdown-menu bg-light m-0">
+                        <a href="./prestamoRegistro.html" class="dropdown-item">Registro de prestamo</a>
                         <a href="./prestamoLista.html" class="dropdown-item">Lista de prestamo</a>
+                      </div>
                     </div>
-                  </div>
-                  <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
+                    <div class="nav-item dropdown">
+                      <a href="#" class="nav-link dropdown-toggle"data-bs-toggle="dropdown">Multa</a>
                     <div class="dropdown-menu bg-light m-0">
-                        <a href="./multaRegistro.html" class="dropdown-item">Registro de Multa</a>
-                        <a href="./multaLista.html" class="dropdown-item">Lista de Multa</a>
+                      <a href="./multaRegistro.html" class="dropdown-item">Registro de Multa</a>
+                      <a href="./multaLista.html" class="dropdown-item">Lista de Multa</a>
                     </div>
                 </div>
-      
+                
                 </div>
-            </div>
+              </div>
           </nav>
       </div>
   </div>
@@ -103,73 +102,77 @@
     <h2 class="registrarPacienteT">Registrar prestamo</h2>
     <!-- from Star(fromulario inicio) -->
     <div class="" style="padding-left: 21rem;">
-        <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+      <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
     </div><!-- <form class="row g-3 needs-validation" novalidate> -->
-    <div class="row justify-content-center" >
-      <div class="col-md-4">
-        <label for="fecha_prestamo" class="form-label">Fecha del prestamo</label>
-        <input type="date" class="form-control" name="fecha_prestamo" id="fecha_prestamo" step="1" />
-      </div>
-      <div class="col-md-4">
-        <label for="fecha_devolucion" class="form-label">Fecha de la devolución</label>
-        <input
+      <div class="row"  style="place-content: center; gap: 20px;">
+        <div class="col-md-4">
+          <label for="fecha_prestamo" class="form-label">Fecha del prestamo</label>
+          <input type="date" class="form-control" name="fecha_prestamo" id="fecha_prestamo" step="1" />
+        </div>
+        <div class="col-md-4">
+          <label for="fecha_devolucion" class="form-label">Fecha de la devolución</label>
+          <input
           type="date"
           class="form-control"
           name="fecha_devolucion"
           id="fecha_devolucion"
-          step="1" onfocusout="validarfecha_prestamoprestamo(this);"
+          step="1" 
           />
           <!-- onfocusout="validarNumeroIdentificacion(this);"  -->
-      </div>
-      <div class="col-md-4">
-        <label for="usuario_prestamo" class="form-label">Usuario</label>
-        <select name="usuario_prestamo" id="usuario_prestamo" class="form-select">
-          <option selected disabled value="">
-            Seleccione el usuario
-          </option>
-          <option value=""></option>
-          <option value=""></option>
-        </select>
-      </div>
+        </div>
+        <div class="col-md-4">
+          <label for="usuario" class="form-label">Usuario</label>
+          <select name="usuario" id="usuario" class="form-select">
+            <option selected disabled value="">
+              Seleccione el usuario
+            </option>
+            <option value=""></option>
+            <option value=""></option>
+            <option value=""></option>
+          </select>
+        </div>
       <div class="col-md-4">
         <label for="libro" class="form-label">Libro</label>
-        <select name="libro" id="libro_prestamo" class="form-select">
+        <select name="libro" id="libro" class="form-select">
           <option selected disabled value="">
             Seleccione el libro
           </option>
           <option value=""></option>
           <option value=""></option>
+          <option value=""></option>
         </select>
       </div>
-     
+      
       <div class="col-md-4">
         <label for="estado_prestamo" class="form-label">Estado*</label>
         <select name="estado_prestamo" id="estado_prestamo" class="form-select">
           <option selected disabled value="">
             ¿En qué estado se encuentra?...
           </option> 
-          <option value=""></option>
-          <option value=""></option>
+          <option value="prestamo">Préstamo</option>
+          <option value="entregado">Entregado</option>
+          <option value="cancelado">Cancelado</option>
         </select>
       </div>
       <div class="col-12" style=" display: flex;justify-content: center;">
         <button
-          class="btn btn-success"
-          onclick="registrarPrestamo();"
-          type="button" style="width: 200px;"
+        class="btn btn-success"
+        onclick="registrarPrestamo();"
+        type="button" style="width: 200px;"
         >
-          Registrar
-        </button>
-        <button
-          class="btn btn-dark"
-          onclick="limpiar();"
-          type="button" style="width: 200px;"
-        >
-          Limpiar
+        Registrar
       </button>
-      </div>
-    </div>
-    <!-- </form> -->
-    <!-- from End(fromulario final) -->
-  </body>
+      <button
+      class="btn btn-dark"
+      onclick="limpiar();"
+      type="button" style="width: 200px;"
+      >
+      Limpiar
+    </button>
+  </div>
+</div>
+<!-- </form> -->
+<!-- from End(fromulario final) -->
+<script src="js/prestamo.js"></script>
+</body>
 </html>

@@ -11,6 +11,9 @@ router_libros.register(r'libros', views.LibroView)
 router_usuarios = routers.DefaultRouter()
 router_usuarios.register(r'usuarios', views.UsuarioView)
 
+#router_tipo_usuario = routers.DefaultRouter()
+#router_tipo_usuario.register(r'tipoUsuario',views.TipoUsuarioVIew,)
+
 router_prestamo = routers.DefaultRouter()
 router_prestamo.register(r'prestamo', views.PrestamoView)
 
@@ -24,5 +27,6 @@ urlpatterns = [
     path("api/v1/", include(router_usuarios.urls)),
     path("api/v1/", include(router_prestamo.urls)),
     path("api/v1/", include(router_multa.urls)),
+    path("api/v1/tipo/",views.tipoUsuario)
     
 ]

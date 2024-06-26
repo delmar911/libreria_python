@@ -1,5 +1,31 @@
 //se almacena la url de la api
+//let url="http://127.0.0.1:8000/libreria/api/v1/libros/";
 let url="http://127.0.0.1:8000/libreria/api/v1/libros/";
+
+document.getElementById("titulo").addEventListener("keypress", soloLetras);
+document.getElementById("autor").addEventListener("keypress", soloLetras);
+document.getElementById("isbn").addEventListener("keypress", soloLetras);
+document.getElementById("numero_disponible").addEventListener("keypress", soloLetras);
+document.getElementById("numero_ocupado").addEventListener("keypress", soloLetras);
+
+function soloLetras(event){
+  console.log("LLave presionada: "+event.key);
+  console.log("Codigo tecla: "+event.keyCode);
+
+  const caracteresNoPermitidos = [
+    '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '{', '}', '[', ']',
+    '\\', '|', ';', ':', '"', , '<', '>', '/', '`', '~'
+  ]; // Lista de caracteres no permitidos
+
+ 
+  // Verificar si el carácter no está permitido
+  if (caracteresNoPermitidos.includes(event.key)) {
+    event.preventDefault(); // Prevenir la entrada del carácter
+    return;
+  }
+}
+
+
 function listarLibros() {
   var busqueda = document.getElementById("buscar").value;
   var urlBusqueda = url;

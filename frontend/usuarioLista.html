@@ -18,15 +18,14 @@
 
         <link rel="stylesheet" href="./css/btn.css">
         <link rel="stylesheet" href="css/estilos.css">
-        <script src="./js/usuario.js"></script>
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
-  
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="./img/world-book-day.png" type="image/x-icon">
+        
 </head>
 <body onload="listarUsuario();">
    <!-- Brand Start (Inicio de marca) -->
-    <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
-        <div class="container p-4">
+   <div class="container-fluid text-white pt-4 pb-5 d-none d-lg-flex"  style="background: linear-gradient(to top, rgba(255,0,0,0), #ffc107);">
+       <div class="container p-4">
             <div class="d-flex align-items-center justify-content-center">
                 <a href="index.html" class="h1 text-white mb-0" style="font-size: 50px; font-family: Arial, sans-serif; text-decoration: none; text-shadow: 1px 1px 2px rgb(81, 81, 81);">Libreria <span style=" font-weight: bold; 
                 -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #ff9a3c44; color: #f8da5b; text-shadow: 1px 1px 2px rgb(81, 81, 81); font-family: Pacifico, sans-serif;"> Yellow</span></a>
@@ -43,13 +42,13 @@
                 <a href="index.html" class="navbar-brand d-lg-none">
                     <!-- <h1 class="text-white m-0">Libreria<span class="text-warning">Yellow</span></h1> -->
                 </a>
-
-<!--                 
-                <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
+                
+                <!--                 
+                    <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
-
+                
                 <div class="collapse navbar-collapse d-flex flex-row justify-content-center" id="navbarCollapse">
                     <div class="navbar-nav" style="margin-left: 2%;">
                             <a href="index.html" class="nav-item nav-link active">Home</a>
@@ -94,18 +93,18 @@
         <!-- Navbar End -->
         <div class="container" style="background-color: rgba(255, 255, 255, 0.5); border-radius: 10px; height: 60vh;">
                 <h2 class="registrarPacienteT pt-3 pb-4">Lista de usuarios</h2>
-            <div class="container">
-                <!-- star table -->
+                <div class="container">
+                    <!-- star table -->
                 <div class="row" style="margin-right: 0px; justify-content: center;">
                     <div class="col-4">
                         <div class="input-group mb-3 ">
-                        <input type="text" class="form-control me-2 rounded-start-3" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" class="form-control me-2 rounded-start-3" placeholder="Filtrar por nombre"id="buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
                         <button class="btn btn-outline-success" type="button" id="btn-search" onclick="listarUsuario();">Buscar</button>
                     </div>
                 </div>                
             </div>
             
-
+            
             <table class="table table-hover">
                 <thead class="table-light justify-content-center">
                     <tr>
@@ -118,7 +117,7 @@
                     </tr>
                 </thead>
                 <tbody id="cuerpoTablaUsuario">
-                        
+                    
                 </tbody>
             </table>
         </div>
@@ -130,19 +129,19 @@
                 <h5 class="modal-title" id="exampleModalLabel">Modificar usuario</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" >
-             <div class="row" >
-                <div class="col-6">
-                    <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
-                </div>
-                <div class="col-6">
-                    <label for="nombres" class="form-label">Nombres completos*</label>
-                    <input type="text" class="form-control" name="nombres" id="nombres" step="1" onfocusout="validarNombreusuario(this);" >
-                    <input type="hidden" id="id" step="1">
-                </div>
-                <div class="col-6">
-                    <label for="direccion" class="form-label">Dirección*</label>
-                    <input type="text" class="form-control" name="direccion" id="direccion" >
+            <div class="modal-body"  >
+                <div class="row" >
+                    <div class="col-6">
+                        <p><strong>Todos los campos que contengan (*) son obligatorios</strong> </p>
+                    </div>
+                    <div class="col-6">
+                        <label for="nombres" class="form-label">Nombres completos*</label>
+                        <input type="text" class="form-control" name="nombres" id="nombres" step="1" onfocusout="validarNombreusuario(this);" >
+                        <input type="hidden" id="id" step="1">
+                    </div>
+                    <div class="col-6">
+                        <label for="direccion" class="form-label">Dirección*</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" >
                 </div>
                 <div class="col-6">
                     <label for="correo" class="form-label">Correo*</label>
@@ -155,14 +154,15 @@
                                   
                   </div> 
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="updateUsuario();">Guardar</button>
-                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-success" onclick="updateUsuario();">Guardar</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
-          </div>
         </div>    
     </div>
 </div>  
-    </body>
+</body>
+<script src="./js/usuario.js"></script>
 </html>
 
 

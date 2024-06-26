@@ -16,6 +16,7 @@ class LibroSerializer(serializers.ModelSerializer):
     #agregar los campos necesarios para mostrar
     #si de desea agregar todos los campos se puede utilizar la 
     #funcion __all__
+    
     class Meta:
         model = libro
         fields = '__all__'
@@ -25,7 +26,15 @@ class LibroSerializer(serializers.ModelSerializer):
         #     'genero',
         #     etc
         # }
-        
+# class listarLibroSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=libro
+#         fields =['id','titulo']  
+# class listaUsuarioSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model=usuario
+#         fields =['id','nombres']  
+             
 class UsuarioSerializer(serializers.ModelSerializer):
     #agregar los campos necesarios para mostrar
     #si de desea agregar todos los campos se puede utilizar la 
@@ -34,10 +43,16 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = usuario
         fields = '__all__'
 
+
+
 class PrestamoSerializer(serializers.ModelSerializer):
     #agregar los campos necesarios para mostrar
     #si de desea agregar todos los campos se puede utilizar la 
     #funcion __all__
+    libro = serializers.SlugRelatedField(slug_field='id', queryset=libro.objects.all())
+    usuario = serializers.SlugRelatedField(slug_field='id', queryset=usuario.objects.all())
+    
+  
     class Meta:
         model = prestamo
         fields = '__all__'
@@ -46,6 +61,7 @@ class MultaSerializer(serializers.ModelSerializer):
     #agregar los campos necesarios para mostrar
     #si de desea agregar todos los campos se puede utilizar la 
     #funcion __all__
+    
     class Meta:
         model = multa
         fields = '__all__'

@@ -1,5 +1,28 @@
 //se almacena la url de la api
 let url="http://127.0.0.1:8000/libreria/api/v1/usuarios/";
+
+document.getElementById("nombres").addEventListener("keypress", soloLetras);
+document.getElementById("direccion").addEventListener("keypress", soloLetras);
+document.getElementById("correo").addEventListener("keypress", soloLetras);
+document.getElementById("tipoUsuario").addEventListener("keypress", soloLetras);
+
+function soloLetras(event){
+  console.log("LLave presionada: "+event.key);
+  console.log("Codigo tecla: "+event.keyCode);
+
+  const caracteresNoPermitidos = [
+    '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '{', '}', '[', ']',
+    '\\', '|', ';', ':', '"', , '<', '>', '/', '`', '~'
+  ]; // Lista de caracteres no permitidos
+
+ 
+  // Verificar si el carácter no está permitido
+  if (caracteresNoPermitidos.includes(event.key)) {
+    event.preventDefault(); // Prevenir la entrada del carácter
+    return;
+  }
+}
+
 function listarUsuario() {
     var busqueda = document.getElementById("buscar").value;
     var urlBusqueda = url;
@@ -74,7 +97,40 @@ function listarUsuario() {
         }
     })
 }
+// function cargarUsuario() {
+//   let urlusuario = "http://127.0.0.1:8000/libreria/api/v1/tipoUsuario/";
 
+//   $.ajax({
+//     url: urlusuario,
+//     type: "GET",
+//     success: function (result) {
+//       let tipoUsuario = document.getElementById("tipoUsuario");
+//       tipoUsuario.innerHTML = "";
+//       for (let i = 0; i < result.length; i++) {
+//         let usuario = document.createElement("option");
+//         usuario.value = result[i]["id"];
+       
+//            //se utiliza el switch para que traiga los choices    
+//         switch (result[i]["tipoUsuario"]) {
+//           case 1:
+//             usuario.innerText = "Lector";
+//               break;
+//           case 2:
+//             usuario.innerText = "Bibliotecario";
+//               break;
+//           case 3:
+//             usuario.innerText = "Administrador";
+//               break;
+//           default:
+//             usuario.innerText = "valor no valido";
+//               break;
+//       }
+//           tipoUsuario.appendChild(usuario);
+        
+//       }
+//     },
+//   });
+// }
 //Paso para crear el registro de un médico
 function registrarUsuario() {
     
@@ -126,11 +182,10 @@ function validarCampos() {
   let direccion = document.getElementById("direccion");
   var correo = document.getElementById("correo"); 
   var tipoUsuario = document.getElementById("tipoUsuario"); 
-  var porcentaje_iva = document.getElementById("porcentaje_iva"); 
-  var porcentaje_descuento=document.getElementById("porcentaje_descuento"); 
+ 
 
   return validarnombresProducto(nombres) && validarnombresProducto(direccion) && validarcorreo(correo) 
-  && validartipoUsuario(tipoUsuario) && validarIvaDescuento(porcentaje_iva) && validarIvaDescuento(porcentaje_descuento);
+  && validartipoUsuario(tipoUsuario);
 }
 
 function validarnombresProducto(campo){
@@ -184,20 +239,7 @@ function validartipoUsuario(Numero) {
   return valido;
 }
 
-function validarIvaDescuento(campo){
-  var valido=true;
-  if(campo.value.length < 0 || campo.value.length > 2){
-      valido=false;
-  }
 
-  if (valido) {
-      campo.className = "form-control is-valid"
-  }
-  else{
-      campo.className = "form-control is-invalid"
-  }
-  return valido;
-}
 
 //Cuando le damos click al boton de guardar, este llamara a la function updateproducto por medio del onclick******
 function updateUsuario() {

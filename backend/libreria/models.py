@@ -7,55 +7,70 @@ from django.db import models
 
 class libro(models.Model):
     
-    titulo = models.CharField(max_length=30 )
-    autor = models.CharField(max_length=60 )
+    titulo = models.CharField(max_length=30)
+    autor = models.CharField(max_length=60)
     isbn = models.CharField(max_length=13)
     genero = models.CharField(max_length=50)
     numero_disponible = models.IntegerField()
     numero_ocupado = models.IntegerField()
-   
+
     def __str__(self):
        return self.titulo
-   
+
 class usuario(models.Model):
+    lector = 'Lector'
+    bibliotecario = 'Bibliotecario'
+    administrador = 'Administrador'
+    
     tipo_usuario = [
-        (1, 'Lector'),
-        (2, 'Bibliotecario'),
-        (3, 'Administrador')
+        (lector, 'Lector'),
+        (bibliotecario, 'Bibliotecario'),
+        (administrador, 'Administrador')
     ]
+
     nombres = models.CharField(max_length=60)
     direccion = models.CharField(max_length=60)
     correo = models.CharField(max_length=150)
-    tipoUsuario = models.IntegerField(choices=tipo_usuario)
-    
+    tipoUsuario = models.CharField(choices=tipo_usuario, max_length=60)
+
     def __str__(self):
        return self.nombres
 
 class prestamo(models.Model):
-    estado_prestamo = [
-        (1, 'Préstamo'),
-        (2, 'Entregado'),
-        (3, 'Cancelado')
+    
+    prestamo = 'prestamo'
+    entregado = 'entregado'
+    cancelado = 'cancelado'
+    
+    estado_tipo_prestamo = [
+        (prestamo, 'prestamo'),
+        (entregado, 'entregado'),
+        (cancelado, 'cancelado')
     ]
+
     fecha_prestamo = models.DateField()
     fecha_devolucion = models.DateField()
-    usuario = models.ForeignKey(usuario, related_name='prestamo', on_delete=models.PROTECT)
-    libro = models.ForeignKey(libro, related_name='prestamo', on_delete=models.CASCADE)
-    estado_prestamo = models.IntegerField(choices=estado_prestamo)
+    usuario = models.ForeignKey(usuario, related_name='prestamos', on_delete=models.PROTECT)
+    libro = models.ForeignKey(libro, related_name='prestamos', on_delete=models.CASCADE)
+    estado_prestamo = models.CharField(choices=estado_tipo_prestamo, max_length=60)
     
     def __str__(self):
-        return f"Prestamo de {self.libro} a {self.usuario} ({self.get_estado_prestamo_display()})"
+        return f"Prestamo de {self.libro.titulo} a {self.usuario.nombres}"
 
 class multa(models.Model):
+    pendiente = 'pendiente'
+    pagado = 'pagado'
+    estado = [
+        (pendiente, 'pendiente'),
+        (pagado, 'pagado')
+    ]
+    
     fecha_multa = models.DateField()
     usuario_multado = models.ForeignKey(usuario,related_name='multa', on_delete=models.CASCADE)
     prestamo = models.ForeignKey(prestamo, related_name='multa', on_delete=models.CASCADE)
     valor_multa = models.IntegerField()
-    estado = [
-        (1, 'Pendiente'),
-        (2, 'Pagado')
-    ]
-    estado_multa = models.IntegerField(choices=estado, default=1)
+    
+    estado_multa = models.CharField(choices=estado, max_length=60)
     
     
     def __str__(self):

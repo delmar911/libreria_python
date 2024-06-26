@@ -18,7 +18,7 @@ function listarmulta() {
                 let trRegistro = document.createElement("tr");//fila por cada registro de la tabla
                 let celdaId = document.createElement("td");
                 let celdausuario_multado = document.createElement("td");
-                let celdaprestamo = document.createElement("tr");
+                let celdaprestamo = document.createElement("td");
                 let celdaValorMulta = document.createElement("td");
                 let celdaestado_multa = document.createElement("td");
                 // let celdaEditar = document.createElement("td");
@@ -150,7 +150,7 @@ function validarNombreusuario_multado(campo){
 function CargarFormulario() {
   cargarusuario_multado();
   cargarprestamo();
-  cargarMulta();
+  //cargarMulta();
 }
 //funcion para traer los usuario_multados
 function cargarusuario_multado() {
@@ -166,7 +166,7 @@ function cargarusuario_multado() {
         let usuario = document.createElement("option");
         usuario.value = result[i]["id"];
         usuario.innerText = nombre_completo_usuario =
-          result[i]["nombres"]
+          result[i]["nombres"];
           usuario_multado.appendChild(usuario);
         
       }
@@ -180,39 +180,40 @@ function cargarprestamo() {
     url: urlprestamo,
     type: "GET",
     success: function (result) {
-      let prestamo_multa = document.getElementById("prestamo");
-      prestamo_multa.innerHTML = "";
-      for (let i = 0; i < result.length; i++) {
-        let estado_prestamo = document.createElement("option");
-        estado_prestamo.value = result[i]["id"];
-        estado_prestamo.innerText = prestamo_estado =
-          result[i]["estado_prestamo"]
-          prestamo_multa.appendChild(estado_prestamo);
-        
-      }
-    },
-  });
-}
-function cargarMulta() {
-  let urlmulta = "http://127.0.0.1:8000/libreria/api/v1/multa/";
-
-  $.ajax({
-    url: urlmulta,
-    type: "GET",
-    success: function (result) {
-      let multaestado = document.getElementById("estado_multa");
-      multaestado.innerHTML = "";
+      let prestamo = document.getElementById("prestamo");
+      prestamo.innerHTML = "";
       for (let i = 0; i < result.length; i++) {
         let estado_multa = document.createElement("option");
-        estado_multa.value = result[i]["id"];
-        estado_multa.innerText = estadoMulta =
-          result[i]["estado_multa"]
-          multaestado.appendChild(estado_multa);
+        estado_multa.value = prestamoMulta = result[i]["usuario"];
+        //se utiliza el switch para que traiga los choices    
+       
+      
+      prestamo.appendChild(estado_multa);
         
       }
     },
   });
 }
+// function cargarMulta() {
+//   let urlmulta = "http://127.0.0.1:8000/libreria/api/v1/multa/";
+
+//   $.ajax({
+//     url: urlmulta,
+//     type: "GET",
+//     success: function (result) {
+//       let multaestado = document.getElementById("estado_multa");
+//       multaestado.innerHTML = "";
+//       for (let i = 0; i < result.length; i++) {
+//         let estado_multa = document.createElement("option");
+//         estado_multa.value = result[i]["id"];
+
+        
+//           multaestado.appendChild(estado_multa);
+        
+//       }
+//     },
+//   });
+// }
 
 
 //Cuando le damos click al boton de guardar, este llamara a la function updateventas por medio del onclick******
