@@ -17,6 +17,7 @@ function listarmulta() {
                //se crea una etiqueta tr por cada registro
                 let trRegistro = document.createElement("tr");//fila por cada registro de la tabla
                 let celdaId = document.createElement("td");
+                let celdaFechaMulta = document.createElement("td");
                 let celdausuario_multado = document.createElement("td");
                 let celdaprestamo = document.createElement("td");
                 let celdaValorMulta = document.createElement("td");
@@ -24,16 +25,17 @@ function listarmulta() {
                 // let celdaEditar = document.createElement("td");
                 
                 //almacenamos en valor
-                
                 celdaId.innerText = result[i]["id"];
+                celdaFechaMulta.innerText = result[i]["fecha_multa"];
                 celdaValorMulta.innerText = result[i]["valor_multa"];
-                celdausuario_multado.innerText = result[i]["usuario_multado"]["nombres"];
-                celdaprestamo.innerText = result[i]["prestamo"]["prestamo"];
+                obtenerNombreUsuario(result[i]["usuario_multado"], celdausuario_multado);
+                obtenerPrestamo(result[i]["prestamo"], celdaprestamo);
                 celdaestado_multa.innerText = result[i]["estado_multa"];
                 
                 //agregando a los td a su respectivo th y agregandolos a la fila
 
                 trRegistro.appendChild(celdaId);
+                trRegistro.appendChild(celdaFechaMulta);
                 trRegistro.appendChild(celdaValorMulta);
                 trRegistro.appendChild(celdausuario_multado);
                 trRegistro.appendChild(celdaprestamo);
@@ -75,10 +77,37 @@ function listarmulta() {
     })
  
 }
+function obtenerNombreUsuario(id, celdausuario_multado) {
+  // Hacer una petición AJAX para obtener el nombre del usuario
+  $.ajax({
+      url: 'http://127.0.0.1:8000/libreria/api/v1/usuarios/'+ id + '/',  // Ajusta la URL según tu configuración
+      type: 'GET',
+      success: function (usuario) {
+        celdausuario_multado.innerText = usuario.nombres;
+      },
+      error: function (error) {
+          console.error('Error obteniendo nombre de usuario: ', error);
+      }
+  });
+}
 
+function obtenerPrestamo(id, celdaprestamo) {
+  // Hacer una petición AJAX para obtener el título del libro
+  $.ajax({
+      url: 'http://127.0.0.1:8000/libreria/api/v1/prestamo'+ '/' + id + '/',  // Ajusta la URL según tu configuración
+      type: 'GET',
+      success: function (prestamo) {
+        celdaprestamo.innerText = prestamo.estado_prestamo;
+      },
+      error: function (error) {
+          console.error('Error obteniendo el estado del prestamo: ', error);
+      }
+  });
+}
 //Paso para crear el registro de un médico ****
 function registrarmulta() {
     
+    let fecha_multa = document.getElementById("fecha_multa").value;
     let usuario_multado = document.getElementById("usuario_multado").value;
     let valor_multa = document.getElementById("valor_multa").value;
     let prestamo = document.getElementById("prestamo").value;
@@ -86,6 +115,7 @@ function registrarmulta() {
 
     let formData = {
         
+        "fecha_multa": fecha_multa,
         "valor_multa": valor_multa,
         "usuario_multado": usuario_multado,
         "prestamo": prestamo,
@@ -150,6 +180,7 @@ function validarNombreusuario_multado(campo){
 function CargarFormulario() {
   cargarusuario_multado();
   cargarprestamo();
+
   //cargarMulta();
 }
 //funcion para traer los usuario_multados
@@ -165,8 +196,7 @@ function cargarusuario_multado() {
       for (let i = 0; i < result.length; i++) {
         let usuario = document.createElement("option");
         usuario.value = result[i]["id"];
-        usuario.innerText = nombre_completo_usuario =
-          result[i]["nombres"];
+        usuario.innerText = nombre_completo_usuario = result[i]["nombres"];
           usuario_multado.appendChild(usuario);
         
       }
@@ -181,46 +211,23 @@ function cargarprestamo() {
     type: "GET",
     success: function (result) {
       let prestamo = document.getElementById("prestamo");
-      prestamo.innerHTML = "";
+      prestamo.innerHTML = '<option selected disabled value="">Seleccione el estado del prestamo</option>';
       for (let i = 0; i < result.length; i++) {
         let estado_multa = document.createElement("option");
-        estado_multa.value = prestamoMulta = result[i]["usuario"];
-        //se utiliza el switch para que traiga los choices    
-       
-      
-      prestamo.appendChild(estado_multa);
+        estado_multa.value = prestamoMulta = result[i]["estado_prestamo"];
+        prestamo.appendChild(estado_multa);
         
       }
     },
   });
 }
-// function cargarMulta() {
-//   let urlmulta = "http://127.0.0.1:8000/libreria/api/v1/multa/";
-
-//   $.ajax({
-//     url: urlmulta,
-//     type: "GET",
-//     success: function (result) {
-//       let multaestado = document.getElementById("estado_multa");
-//       multaestado.innerHTML = "";
-//       for (let i = 0; i < result.length; i++) {
-//         let estado_multa = document.createElement("option");
-//         estado_multa.value = result[i]["id"];
-
-        
-//           multaestado.appendChild(estado_multa);
-        
-//       }
-//     },
-//   });
-// }
-
 
 //Cuando le damos click al boton de guardar, este llamara a la function updateventas por medio del onclick******
 function updatemultas() {
     var id = document.getElementById("id").value;
 
     let formData = {
+        "fecha_multa": document.getElementById("fecha_multa").value,
         "valor_multa": document.getElementById("valor_multa").value,
         "usuario_multado": document.getElementById("usuario_multado").value,
         "prestamo": document.getElementById("prestamo").value,

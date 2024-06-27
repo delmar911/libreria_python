@@ -61,6 +61,8 @@ class MultaSerializer(serializers.ModelSerializer):
     #agregar los campos necesarios para mostrar
     #si de desea agregar todos los campos se puede utilizar la 
     #funcion __all__
+    usuario_multado = serializers.SlugRelatedField(slug_field='id', queryset=usuario.objects.all())
+    prestamo = serializers.SlugRelatedField(slug_field='id', queryset=prestamo.objects.all())
     
     class Meta:
         model = multa

@@ -69,11 +69,10 @@ class multa(models.Model):
     usuario_multado = models.ForeignKey(usuario,related_name='multa', on_delete=models.CASCADE)
     prestamo = models.ForeignKey(prestamo, related_name='multa', on_delete=models.CASCADE)
     valor_multa = models.IntegerField()
-    
     estado_multa = models.CharField(choices=estado, max_length=60)
     
     
     def __str__(self):
-        return f"Multa de {self.valor_multa} para {self.usuario_multado}"
+        return f"Multa de {self.valor_multa} para {self.usuario.usuario_multado}"
 
     

@@ -11,9 +11,6 @@ router_libros.register(r'libros', views.LibroView)
 router_usuarios = routers.DefaultRouter()
 router_usuarios.register(r'usuarios', views.UsuarioView)
 
-#router_tipo_usuario = routers.DefaultRouter()
-#router_tipo_usuario.register(r'tipoUsuario',views.TipoUsuarioVIew,)
-
 router_prestamo = routers.DefaultRouter()
 router_prestamo.register(r'prestamo', views.PrestamoView)
 

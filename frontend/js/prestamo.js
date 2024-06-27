@@ -1,8 +1,6 @@
 //se almacena la url de la api
 let url="http://127.0.0.1:8000/libreria/api/v1/prestamo/";//se debe cambiar la url cuando de conecta por movil
 
-
-
 function listarPrestamo() {
     var busqueda = document.getElementById("buscar").value;
     var urlBusqueda = url;
@@ -86,7 +84,7 @@ function listarPrestamo() {
 function obtenerNombreUsuario(id, celdaUsuario) {
   // Hacer una petición AJAX para obtener el nombre del usuario
   $.ajax({
-      url: 'http://127.0.0.1:8000/libreria/api/v1/usuarios'+ '/' + id + '/',  // Ajusta la URL según tu configuración
+      url: 'http://127.0.0.1:8000/libreria/api/v1/usuarios/'+ id + '/',  // Ajusta la URL según tu configuración
       type: 'GET',
       success: function (usuario) {
           celdaUsuario.innerText = usuario.nombres;
@@ -190,6 +188,7 @@ function validarNombreusuario(campo) {
 
 function CargarFormulario() {
   cargarUsuario();
+  
   cargarLibro();
 
 }
@@ -227,7 +226,7 @@ function cargarLibro() {
         let libro = document.createElement("option");
         libro.value = result[i]["id"];
         libro.innerText = libro_titulo = result[i]["titulo"]
-          libro_prestamo.appendChild(libro);
+        libro_prestamo.appendChild(libro);
       
       }
     },
@@ -295,13 +294,18 @@ function consultarPrestamoID(id){
             document.getElementById("id").value=result["id"];
             document.getElementById("fecha_prestamo").value=result["fecha_prestamo"];
             document.getElementById("fecha_devolucion").value=result["fecha_devolucion"];
-            document.getElementById("usuario").value=result["usuario"]["id"];
-            document.getElementById("libro").value = result["libro"]["id"];
+            document.getElementById("usuario").value=result["usuario"];
+            document.getElementById("libro").value = result["libro"];
             document.getElementById("estado_prestamo").value = result["estado_prestamo"];
-            
-        }
-    });
+        
+     },
+     error: function(error) {
+         console.error('Error obteniendo detalles del préstamo: ', error);
+     }
+ });
 }
+
+
 function limpiar(){
     document.getElementById("fecha_prestamo").className="form-control";
     document.getElementById("fecha_devolucion").className="form-control";
