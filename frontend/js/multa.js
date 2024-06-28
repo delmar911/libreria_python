@@ -49,6 +49,7 @@ function listarmulta() {
 
                 botonEditarventas.onclick=function(e){
                     $('#exampleModal').modal('show');
+                    CargarFormulario();
                     consultarmultaID(this.value); 
                 }
                 botonEditarventas.className= "btn btn-primary"
@@ -215,7 +216,7 @@ function cargarprestamo() {
       for (let i = 0; i < result.length; i++) {
         let estado_multa = document.createElement("option");
         estado_multa.value = result[i]["estado_prestamo"];
-        estado_multa.text = result[i]["estado_prestamo"];
+        estado_multa.innerText = result[i]["estado_prestamo"];
         prestamo.appendChild(estado_multa);
         
       }
@@ -239,7 +240,7 @@ function updatemultas() {
     //Cuando estamos actualizando los datos, y lo hacemos correctamente Aparecerá la Alerta EXCELENTE *****
     if(validarCampos()){
     $.ajax({
-        url: url + id,
+        url: url + id+"/",
         type: "PUT",
         data: formData,
         success: function(result) {
@@ -282,6 +283,9 @@ function consultarmultaID(id){
             document.getElementById("usuario_multado").value=result["usuario_multado"];
             document.getElementById("prestamo").value = result["prestamo"]
             document.getElementById("estado_multa").value=result["estado_multa"];
+        },
+        error: function(error) {
+            console.error('Error obteniendo detalles del préstamo: ', error);
         }
     });
 }
