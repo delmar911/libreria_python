@@ -85,7 +85,7 @@ function listarLibros() {
                     $('#exampleModal').modal('show');
                     consultarclienteID(this.value); 
                 }
-                botonEditarcliente.className= "btn btn-primary"
+                botonEditarcliente.className= "btn btn-warning px-3"
 
                 celdaOpcion.appendChild(botonEditarcliente); 
                 trRegistro.appendChild(celdaOpcion)
@@ -94,7 +94,7 @@ function listarLibros() {
 
                 //boton desahiblitar- la funcion de deshabilitar se encuentra abajo 
                 let botonDeshabilitarcliente= document.createElement("button");
-                botonDeshabilitarcliente.innerHTML="<i class='fa-solid fa-trash'></i>"; 
+                botonDeshabilitarcliente.innerHTML="<i class='fa-solid fa-trash'px-3></i>"; 
                 botonDeshabilitarcliente.className="btn btn-danger"; 
 
                 let clienteIdParaDeshabilitar= result[i]["id"]; 
