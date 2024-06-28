@@ -176,69 +176,87 @@ function registrarUsuario() {
 }
 
 
-//Paso para que el usuario se registre y llene todos los datos correctamente :D****
+usuarios:
+
 function validarCampos() {
-  var nombres = document.getElementById("nombres");
-  let direccion = document.getElementById("direccion");
-  var correo = document.getElementById("correo"); 
-  var tipoUsuario = document.getElementById("tipoUsuario"); 
- 
+   
+    var nombres = document.getElementById("nombres");
+    var direccion = document.getElementById("direccion");
+    var correo = document.getElementById("correo"); 
+    var tipoUsuario = document.getElementById("tipoUsuario"); 
 
-  return validarnombresProducto(nombres) && validarnombresProducto(direccion) && validarcorreo(correo) 
-  && validartipoUsuario(tipoUsuario);
+    return validarnombres(nombres) && validardireccion(direccion) && validarCorreo(correo) 
+         && validarUsuario(tipoUsuario);
 }
 
-function validarnombresProducto(campo){
-  var valido=true;
-  if(campo.value.length < 3 || campo.value.length > 45){
-      valido=false;
-  }
+function validarnombres(nombres) {
+    if (!nombres || !nombres.value) {
+        return false;
+    }
 
-  if (valido) {
-      campo.className = "form-control is-valid"
-  }
-  else{
-      campo.className = "form-control is-invalid"
-  }
-  return valido;
+    let valor = nombres.value;
+    let valido = true;
+    if (valor.length <=0 || valor.length > 200) {
+        valido = false;
+    }
+
+    if (valido) {
+        nombres.className = "form-control is-valid";
+    } else {
+        nombres.className = "form-control is-invalid";
+    }
+    return valido;
 }
 
-function validarcorreo(Numero) {
-  
-  let valor = Numero.value;
-  let valido = true;
-  if(correo.value.length < 0 || correo.value.length > 10000){
-      valido=false;
-  }
+function validardireccion(direccion) {
+    if (!direccion || !direccion.value) {
+        return false;
+    }
 
-  if (valido) {
-      Numero.className = "form-control is-valid"
-  }
-  else{
-      Numero.className = "form-control is-invalid"
-  }
-  return valido;
+    let valor = direccion.value;
+    let valido = true;
+    if (valor.length < 3 || valor.length > 60) {
+        valido = false;
+    }
+
+    if (valido) {
+        direccion.className = "form-control is-valid";
+    } else {
+        direccion.className = "form-control is-invalid";
+    }
+    return valido;
 }
 
 
+function validarCorreo(Correo){
+    var valido=true;
+    if(Correo.value.length <=0 || Correo.value.length > 100){
+        valido=false;
+    }
 
-function validartipoUsuario(Numero) {
-  
-  let valor = Numero.value;
-  let valido = true;
-  if (valor.length <= 0  ) {
-      valido = false
-  }
-
-  if (valido) {
-      Numero.className = "form-control is-valid"
-  }
-  else{
-      Numero.className = "form-control is-invalid"
-  }
-  return valido;
+    if (valido) {
+        Correo.className = "form-control is-valid"
+    }
+    else{
+        Correo.className = "form-control is-invalid"
+    }
+    return valido;
 }
 
+function validarUsuario(TipoUsuario){
+    var valido=true;
+    if(TipoUsuario.value.length <= 0 || TipoUsuario.value.length > 20){
+        valido=false;
+    }
+
+    if (valido) {
+        TipoUsuario.className = "form-control is-valid"
+    }
+    else{
+        TipoUsuario.className = "form-control is-invalid"
+    }
+    return valido;
+}
 
 
 //Cuando le damos click al boton de guardar, este llamara a la function updateproducto por medio del onclick******

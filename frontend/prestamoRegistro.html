@@ -107,7 +107,7 @@
       <div class="row"  style="place-content: center; gap: 20px;">
         <div class="col-md-4">
           <label for="fecha_prestamo" class="form-label">Fecha del prestamo</label>
-          <input type="date" class="form-control" name="fecha_prestamo" id="fecha_prestamo" step="1" />
+          <input type="date" class="form-control" name="fecha_prestamo" id="fecha_prestamo" step="1"  onfocusout="validarFechaPrestamo(this);" />
         </div>
         <div class="col-md-4">
           <label for="fecha_devolucion" class="form-label">Fecha de la devolución</label>
@@ -116,13 +116,14 @@
           class="form-control"
           name="fecha_devolucion"
           id="fecha_devolucion"
-          step="1" 
+          step="1"
+          onfocusout="validarFechaPrestamo(this);" 
           />
           <!-- onfocusout="validarNumeroIdentificacion(this);"  -->
         </div>
         <div class="col-md-4">
           <label for="usuario" class="form-label">Usuario</label>
-          <select name="usuario" id="usuario" class="form-select">
+          <select name="usuario" id="usuario" class="form-select"  onfocusout="validarUsuarioPrestamo(this);" >
             <option selected disabled value="">
               Seleccione el usuario
             </option>
@@ -133,7 +134,7 @@
         </div>
       <div class="col-md-4">
         <label for="libro" class="form-label">Libro</label>
-        <select name="libro" id="libro" class="form-select">
+        <select name="libro" id="libro" class="form-select" onfocusout="validarLibroPrestado(this);">
           <option selected disabled value="">
             Seleccione el libro
           </option>
@@ -145,7 +146,7 @@
       
       <div class="col-md-4">
         <label for="estado_prestamo" class="form-label">Estado*</label>
-        <select name="estado_prestamo" id="estado_prestamo" class="form-select">
+        <select name="estado_prestamo" id="estado_prestamo" class="form-select"onfocusout="validarEstadoPrestamo(this);">
           <option selected disabled value="">
             ¿En qué estado se encuentra?...
           </option> 

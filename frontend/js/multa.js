@@ -214,7 +214,8 @@ function cargarprestamo() {
       prestamo.innerHTML = '<option selected disabled value="">Seleccione el estado del prestamo</option>';
       for (let i = 0; i < result.length; i++) {
         let estado_multa = document.createElement("option");
-        estado_multa.value = prestamoMulta = result[i]["estado_prestamo"];
+        estado_multa.value = result[i]["estado_prestamo"];
+        estado_multa.text = result[i]["estado_prestamo"];
         prestamo.appendChild(estado_multa);
         
       }

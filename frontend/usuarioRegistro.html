@@ -109,17 +109,17 @@
             
             <div class="col-md-4" >
                 <label for="nombres" class="form-label">Nombres completos*</label>
-                <input type="text" class="form-control" name="nombres" id="nombres" step="1"  >
+                <input type="text" class="form-control" name="nombres" id="nombres" step="1"   onfocusout="validarnombres(this);">
             </div>
             
             <div class="col-md-4" >
                     <label for="direccion" class="form-label">Dirección*</label>
-                    <input type="text" class="form-control" name="direccion" id="direccion" >
+                    <input type="text" class="form-control" name="direccion" id="direccion" onfocusout="validardireccion(this);">
                     
                 </div>
                 <div class="col-md-4" >
                     <label for="correo" class="form-label">Correo*</label>
-                    <input type="text" class="form-control" name="correo" id="correo">
+                    <input type="text" class="form-control" name="correo" id="correo" onfocusout="validarCorreo(this);">
                 </div>
                 
                 <div class="col-md-4" >

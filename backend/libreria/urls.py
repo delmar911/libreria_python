@@ -23,7 +23,6 @@ urlpatterns = [
     path("docs/", include_docs_urls(title="Libreria Api")),
     path("api/v1/", include(router_usuarios.urls)),
     path("api/v1/", include(router_prestamo.urls)),
-    path("api/v1/", include(router_multa.urls)),
-    path("api/v1/tipo/",views.tipoUsuario)
+    path("api/v1/", include(router_multa.urls))
     
 ]

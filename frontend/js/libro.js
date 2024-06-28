@@ -162,68 +162,126 @@ function RegistrarLibros() {
   }
 }
 
+libro:
+
 function validarCampos() {
-  var autor = document.getElementById("autor"); 
-  var isbn = document.getElementById("isbn"); 
-  var genero = document.getElementById("genero"); 
-  var numero_ocupado = document.getElementById("numero_ocupado"); 
+   
+    var titulo = document.getElementById("titulo");
+    var autor = document.getElementById("autor");
+    var isbn = document.getElementById("isbn"); 
+    var genero = document.getElementById("genero"); 
+    var num_ejem_disponibles = document.getElementById("num_ejem_disponibles");
+    var num_ejem_ocupados = document.getElementById("num_ejem_ocupados"); 
  
+   
+    
 
-  return validarNombreApellido(isbn) 
-         && validarNombreApellido(genero) 
-
-
+    return validarTitulo(titulo) && validarAutor(autor) && validarIsbn(isbn) 
+         && validarGenero(genero) && validarDisponibles(num_ejem_disponibles) && validarOcupados(num_ejem_ocupados);
 }
 
-function validarNumeroDocumento(cuadroNumero){
-    var valor=cuadroNumero.value; 
-    var valido=true; 
-    if(valor.length<5 || valor.length>10){
-      valido=false    
+function validarTitulo(TituloLibro) {
+    if (!TituloLibro || !TituloLibro.value) {
+        return false;
+    }
+
+    let valor = TituloLibro.value;
+    let valido = true;
+    if (valor.length <=0 || valor.length > 200) {
+        valido = false;
+    }
+
+    if (valido) {
+        TituloLibro.className = "form-control is-valid";
+    } else {
+        TituloLibro.className = "form-control is-invalid";
+    }
+    return valido;
+}
+
+function validarAutor(NombreAutor) {
+    if (!NombreAutor || !NombreAutor.value) {
+        return false;
+    }
+
+    let valor = NombreAutor.value;
+    let valido = true;
+    if (valor.length < 3 || valor.length > 60) {
+        valido = false;
+    }
+
+    if (valido) {
+        NombreAutor.className = "form-control is-valid";
+    } else {
+        NombreAutor.className = "form-control is-invalid";
+    }
+    return valido;
+}
+
+
+function validarIsbn(Isbn){
+    var valido=true;
+    if(Isbn.value.length == 13){
+        valido=false;
+    }
+
+    if (valido) {
+        Isbn.className = "form-control is-valid"
+    }
+    else{
+        Isbn.className = "form-control is-invalid"
+    }
+    return valido;
+}
+
+function validarGenero(TipoGenero){
+    var valido=true;
+    if(TipoGenero.value.length <= 0 || TipoGenero.value.length > 10){
+        valido=false;
+    }
+
+    if (valido) {
+        TipoGenero.className = "form-control is-valid"
+    }
+    else{
+        TipoGenero.className = "form-control is-invalid"
+    }
+    return valido;
+}
+
+
+function validarDisponibles(LibrosDisponibles) {
+    
+    let valor = LibrosDisponibles.value;
+    let valido = true;
+    if (valor.length < 1 || valor.length > 3) {
+        valido = false
+    }
+
+    if (valido) {
+        LibrosDisponibles.className = "form-control is-valid"
+    }
+    else{
+        LibrosDisponibles.className = "form-control is-invalid"
+    }
+    return valido;
+}
+
+
+function validarOcupados(LibrosOcupados){
+    let valor = LibrosOcupados.value;
+    let valido = true;
+    if (valor.length < 1 || valor.length > 3) {
+        valido = false
     }
     if (valido) {
-      //cuadro de texto cumple
-      //se modifica la clase del cuadro de textp
-      cuadroNumero.className="form-control is-valid";
-    }else{
-    //cuadro de texto no cumple 
-    cuadroNumero.className="form-control is-invalid";
+        LibrosOcupados.className = "form-control is-valid"
     }
-  return valido; 
+    else{
+        LibrosOcupados.className = "form-control is-invalid"
+    }
+    return valido;
 }
-
-function validarNombreApellido(campo){
-  var value=campo.value;
-  var valido=true;
-  if(value.length<3 || value.length>60){
-      valido=false;
-  }
-
-  if (valido) {
-    campo.className = "form-control is-valid"
-  }
-  else{
-    campo.className = "form-control is-invalid"
-  }
-  return valido;
-}
-
-// function validarnumero_ocupado(Numero) {
-    
-//   let valor = Numero.value;
-//   let valido = true;
-//   if (valor.length < 10 || valor.length >13) {
-//       valido = false
-//   }
-
-//   if (valido) {
-//       Numero.className = "form-control is-valid"
-//   }
-//   else{
-//       Numero.className = "form-control is-invalid"
-//   }
-//   return valido;
-// }
 
 
 

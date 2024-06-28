@@ -110,9 +110,9 @@
                         <tr>
                             <th scope="col" class="px-5">Código multa</th>
                             <th scope="col" class="px-5">Fecha de la multa</th>
-                            <th scope="col" class="px-5">Valor multa</th>
+                            <th scope="col" class="px-5">Valor de la multa</th>
                             <th scope="col" class="px-5">Usuario multado</th>
-                            <th scope="col" class="px-5">Prestamo</th>
+                            <th scope="col" class="px-5">Estado del prestamo</th>
                             <th scope="col" class="px-5">Estado multa</th>
                             <th scope="col" class="px-5">Editar</th>
                     </tr>
@@ -154,18 +154,29 @@
                             </div>
                             <div class="col-6">
                                 <label for="estado_multa" class="form-label">Estado de la multa*</label>
-                    <input type="number" class="form-control" name="estado_multa" id="estado_multa" >
+                                <select name="estado_multa" id="estado_multa" class="form-select">
+                                    <option selected disabled value="">
+                                        Seleccione el estado de la multa
+                                    </option>
+                                    <option value="pendiente">pendiente</option>
+                                    <option value="pagado">pagado</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="updateMulta();">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
                 </div>
                 
             </div> 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" onclick="updateMulta();">Guardar</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
+           
         </div>
     </div>    
-</div>
-</div>  
+        </div>
+    </div>  
 </body>
 <script src="./js/multa.js"></script>
 </html>

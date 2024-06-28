@@ -155,32 +155,103 @@ function registrarPrestamo() {
 }
 
 
-//Paso para que el usuario se registre y llene todos los datos correctamente :D****
+prestamo:
+
 function validarCampos() {
-  
-  var usuario = document.getElementById("usuario"); 
+   
+    var fecha_prestamo = document.getElementById("fecha_prestamo");
+    var fecha_devolucion = document.getElementById("fecha_devolucion");
+    var usuario = document.getElementById("usuario"); 
+    var libro = document.getElementById("libro"); 
+    var estado_prestamo = document.getElementById("estado_prestamo"); 
 
-
-  return  validarNombreusuario(usuario);
+    return validarFechaPrestamo(fecha_prestamo) && validarFechaDevolucion(fecha_devolucion) && validarUsuarioPrestamo(usuario) 
+    && validarLibroPrestado(libro) && validarEstadoPrestamo(estado_prestamo);
 }
 
-function validarNombreusuario(campo) {
-  var valido = true;
-  var valorSeleccionado = campo.value;
+function validarFechaPrestamo(fecha_prestamo) {
+    if (!fecha_prestamo || !fecha_prestamo.value) {
+        return false;
+    }
 
-  // Verificar si se ha seleccionado alguna opción (ejemplo básico)
-  if (valorSeleccionado === "" || valorSeleccionado === null) {
-    valido = false;
-  }
+    let valor = fecha_prestamo.value;
+    let valido = true;
+    if (valor.length < 1 || valor.length > 60) {
+        valido = false;
+    }
 
-  // Cambiar clases según la validez
-  if (valido) {
-    campo.className = "form-control is-valid";
-  } else {
-    campo.className = "form-control is-invalid";
-  }
+    if (valido) {
+      fecha_prestamo.className = "form-control is-valid";
+    } else {
+      fecha_prestamo.className = "form-control is-invalid";
+    }
+    return valido;
+}
 
-  return valido;
+
+function validarFechaDevolucion(fechaDevolucion) {
+    if (!fechaDevolucion || !fechaDevolucion.value) {
+        return false;
+    }
+
+    let valor = fechaDevolucion.value;
+    let valido = true;
+    if (valor.length < 1 || valor.length > 60) {
+        valido = false;
+    }
+
+    if (valido) {
+        fechaDevolucion.className = "form-control is-valid";
+    } else {
+        fechaDevolucion.className = "form-control is-invalid";
+    }
+    return valido;
+}
+
+
+function validarUsuarioPrestamo(usuarioPrestamo){
+    var valido=true;
+    if(usuarioPrestamo.value.length <=0 || usuarioPrestamo.value.length > 45){
+        valido=false;
+    }
+
+    if (valido) {
+        usuarioPrestamo.className = "form-control is-valid"
+    }
+    else{
+        usuarioPrestamo.className = "form-control is-invalid"
+    }
+    return valido;
+}
+
+function validarLibroPrestado(libroPrestado){
+    var valido=true;
+    if(libroPrestado.value.length <=0 || libroPrestado.value.length > 100){
+        valido=false;
+    }
+
+    if (valido) {
+        libroPrestado.className = "form-control is-valid"
+    }
+    else{
+        libroPrestado.className = "form-control is-invalid"
+    }
+    return valido;
+}
+
+function validarEstadoPrestamo(estado){
+    var valido=true;
+    if(estado.value.length <= 0 || estado.value.length > 20){
+        valido=false;
+    }
+
+    if (valido) {
+        estado.className = "form-control is-valid"
+    }
+    else{
+        estado.className = "form-control is-invalid"
+    }
+    return valido;
 }
 
 
@@ -188,7 +259,6 @@ function validarNombreusuario(campo) {
 
 function CargarFormulario() {
   cargarUsuario();
-  
   cargarLibro();
 
 }

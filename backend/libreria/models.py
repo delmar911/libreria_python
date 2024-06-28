@@ -55,7 +55,7 @@ class prestamo(models.Model):
     estado_prestamo = models.CharField(choices=estado_tipo_prestamo, max_length=60)
     
     def __str__(self):
-        return f"Prestamo de {self.libro.titulo} a {self.usuario.nombres}"
+        return f"Prestamo de {self.libro.titulo} a {self.usuario.nombres} ({self.estado_prestamo})"
 
 class multa(models.Model):
     pendiente = 'pendiente'
@@ -73,6 +73,6 @@ class multa(models.Model):
     
     
     def __str__(self):
-        return f"Multa de {self.valor_multa} para {self.usuario.usuario_multado}"
+        return f"Multa de {self.valor_multa} para {self.usuario.usuario_multado} ({self.prestamo.estado_prestamo})"
 
     
