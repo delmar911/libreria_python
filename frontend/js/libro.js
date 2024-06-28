@@ -94,8 +94,8 @@ function listarLibros() {
 
                 //boton desahiblitar- la funcion de deshabilitar se encuentra abajo 
                 let botonDeshabilitarcliente= document.createElement("button");
-                botonDeshabilitarcliente.innerHTML="<i class='fa-solid fa-trash'px-3></i>"; 
-                botonDeshabilitarcliente.className="btn btn-danger"; 
+                botonDeshabilitarcliente.innerHTML="<i class='fa-solid fa-trash'></i>"; 
+                botonDeshabilitarcliente.className="btn btn-danger px-3"; 
 
                 let clienteIdParaDeshabilitar= result[i]["id"]; 
                 botonDeshabilitarcliente.onclick=function(){
