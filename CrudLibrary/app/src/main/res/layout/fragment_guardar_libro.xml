@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GuardarLibroFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="30dp">
+
+        <TextView
+            android:id="@+id/lblTitulo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/lbltitulo"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/titulo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Titulo"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/lblAutor"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/lblAutor" />
+
+        <EditText
+            android:id="@+id/autor"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Autor"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/lblIsbn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/lblIsbn" />
+
+        <EditText
+            android:id="@+id/isbn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="ISBN"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/lblGenero" />
+
+        <EditText
+            android:id="@+id/genero"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Género"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/lblNumeroDisponibles" />
+
+        <EditText
+            android:id="@+id/numero_disponible"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Número disponible"
+            android:inputType="text" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/lblNumeroOcupados" />
+
+        <EditText
+            android:id="@+id/numero_ocupado"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:hint="Número ocupado"
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="353dp"
+            android:layout_height="84dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnGuardar"
+                android:layout_width="wrap_content"
+                android:layout_height="62dp"
+                android:layout_weight="1"
+                android:text="Guardar" />
+
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:text="Volver" />
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

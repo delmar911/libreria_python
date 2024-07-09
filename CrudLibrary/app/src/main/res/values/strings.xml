@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CrudLibrary</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lbltitulo">Título:</string>
+    <string name="lblAutor">Autor:</string>
+    <string name="lblIsbn">ISBN:</string>
+    <string name="lblGenero">Género:</string>
+    <string name="lblNumeroDisponibles">Número de ejemplares disponible:</string>
+    <string name="lblNumeroOcupados">Número de ejemplares ocupados:</string>
+</resources>
