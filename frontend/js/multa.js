@@ -1,5 +1,5 @@
 //se almacena la url de la api
-let url="http://127.0.0.1:8000/libreria/api/v1/multa/";
+let url="http://192.168.140.176:8000/libreria/api/v1/multa/";
 function listarmulta() {
     var busqueda = document.getElementById("buscar").value;
     var urlBusqueda = url;
@@ -81,7 +81,7 @@ function listarmulta() {
 function obtenerNombreUsuario(id, celdausuario_multado) {
   // Hacer una petición AJAX para obtener el nombre del usuario
   $.ajax({
-      url: 'http://127.0.0.1:8000/libreria/api/v1/usuarios/'+ id + '/',  // Ajusta la URL según tu configuración
+      url: 'http://192.168.140.176:8000/libreria/api/v1/usuarios/'+ id + '/',  // Ajusta la URL según tu configuración
       type: 'GET',
       success: function (usuario) {
         celdausuario_multado.innerText = usuario.nombres;
@@ -95,7 +95,7 @@ function obtenerNombreUsuario(id, celdausuario_multado) {
 function obtenerPrestamo(id, celdaprestamo) {
   // Hacer una petición AJAX para obtener el título del libro
   $.ajax({
-      url: 'http://127.0.0.1:8000/libreria/api/v1/prestamo'+ '/' + id + '/',  // Ajusta la URL según tu configuración
+      url: 'http://192.168.140.176:8000/libreria/api/v1/prestamo'+ '/' + id + '/',  // Ajusta la URL según tu configuración
       type: 'GET',
       success: function (prestamo) {
         celdaprestamo.innerText = prestamo.estado_prestamo;
@@ -134,7 +134,7 @@ function registrarmulta() {
             text: "Su registro se guardó correctamente",
             icon: "success"
           });
-          // window.location.href= "http://127.0.0.1:5500/front_end/usuario_multadoRegistro.html";
+          // window.location.href= "http://192.168.140.176:5500/front_end/usuario_multadoRegistro.html";
         },
         error: function(error){
           Swal.fire("Error", "Error al guardar "+error.responseText, "error");
@@ -186,7 +186,7 @@ function CargarFormulario() {
 }
 //funcion para traer los usuario_multados
 function cargarusuario_multado() {
-  let urlusuario = "http://127.0.0.1:8000/libreria/api/v1/usuarios/";
+  let urlusuario = "http://192.168.140.176:8000/libreria/api/v1/usuarios/";
 
   $.ajax({
     url: urlusuario,
@@ -205,7 +205,7 @@ function cargarusuario_multado() {
   });
 }
 function cargarprestamo() {
-  let urlprestamo = "http://127.0.0.1:8000/libreria/api/v1/prestamo/";
+  let urlprestamo = "http://192.168.140.176:8000/libreria/api/v1/prestamo/";
 
   $.ajax({
     url: urlprestamo,

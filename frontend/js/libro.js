@@ -1,6 +1,6 @@
 //se almacena la url de la api
-//let url="http://127.0.0.1:8000/libreria/api/v1/libros/";
-let url="http://127.0.0.1:8000/libreria/api/v1/libros/";
+//let url="http://192.168.140.176:8000/libreria/api/v1/libros/";
+let url="http://192.168.140.176:8000/libreria/api/v1/libros/";
 
 document.getElementById("titulo").addEventListener("keypress", soloLetras);
 document.getElementById("autor").addEventListener("keypress", soloLetras);
@@ -146,7 +146,7 @@ function RegistrarLibros() {
 
           icon: "success"
         });
-        // window.location.href= "http://127.0.0.1:5500/front_end/listacliente.html";
+        // window.location.href= "http://192.168.140.176:5500/front_end/listacliente.html";
       },
       error: function(error){
         Swal.fire("Error", "Error al guardar "+error.responseText, "error");

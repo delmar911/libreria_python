@@ -1,5 +1,5 @@
 //se almacena la url de la api
-let url="http://127.0.0.1:8000/libreria/api/v1/prestamo/";//se debe cambiar la url cuando de conecta por movil
+let url="http://192.168.140.176:8000/libreria/api/v1/prestamo/";//se debe cambiar la url cuando de conecta por movil
 
 function listarPrestamo() {
     var busqueda = document.getElementById("buscar").value;
@@ -84,7 +84,7 @@ function listarPrestamo() {
 function obtenerNombreUsuario(id, celdaUsuario) {
   // Hacer una petición AJAX para obtener el nombre del usuario
   $.ajax({
-      url: 'http://127.0.0.1:8000/libreria/api/v1/usuarios/'+ id + '/',  // Ajusta la URL según tu configuración
+      url: 'http://192.168.140.176:8000/libreria/api/v1/usuarios/'+ id + '/',  // Ajusta la URL según tu configuración
       type: 'GET',
       success: function (usuario) {
           celdaUsuario.innerText = usuario.nombres;
@@ -98,7 +98,7 @@ function obtenerNombreUsuario(id, celdaUsuario) {
 function obtenerTituloLibro(id, celdaLibro) {
   // Hacer una petición AJAX para obtener el título del libro
   $.ajax({
-      url: 'http://127.0.0.1:8000/libreria/api/v1/libros'+ '/' + id + '/',  // Ajusta la URL según tu configuración
+      url: 'http://192.168.140.176:8000/libreria/api/v1/libros'+ '/' + id + '/',  // Ajusta la URL según tu configuración
       type: 'GET',
       success: function (libro) {
           celdaLibro.innerText = libro.titulo;
@@ -138,7 +138,7 @@ function registrarPrestamo() {
             text: "Su registro se guardó correctamente",
             icon: "success"
           });
-          // window.location.href= "http://127.0.0.1:5500/front_end/usuarioRegistro.html";
+          // window.location.href= "http://192.168.140.176:5500/front_end/usuarioRegistro.html";
         },
         error: function(error){
           Swal.fire("Error", "Error al guardar "+error.responseText, "error");
@@ -264,7 +264,7 @@ function CargarFormulario() {
 }
 //funcion para traer los usuarios
 function cargarUsuario() {
-  let urlusuario = "http://127.0.0.1:8000/libreria/api/v1/usuarios/";
+  let urlusuario = "http://192.168.140.176:8000/libreria/api/v1/usuarios/";
 
   $.ajax({
     url: urlusuario,
@@ -284,7 +284,7 @@ function cargarUsuario() {
   });
 }
 function cargarLibro() {
-  let urlLibro = "http://127.0.0.1:8000/libreria/api/v1/libros/";
+  let urlLibro = "http://192.168.140.176:8000/libreria/api/v1/libros/";
 
   $.ajax({
     url: urlLibro,

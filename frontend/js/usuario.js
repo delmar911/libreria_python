@@ -1,5 +1,5 @@
 //se almacena la url de la api
-let url="http://127.0.0.1:8000/libreria/api/v1/usuarios/";
+let url="http://192.168.140.176:8000/libreria/api/v1/usuarios/";
 
 document.getElementById("nombres").addEventListener("keypress", soloLetras);
 document.getElementById("direccion").addEventListener("keypress", soloLetras);
@@ -98,7 +98,7 @@ function listarUsuario() {
     })
 }
 // function cargarUsuario() {
-//   let urlusuario = "http://127.0.0.1:8000/libreria/api/v1/tipoUsuario/";
+//   let urlusuario = "http://192.168.140.176:8000/libreria/api/v1/tipoUsuario/";
 
 //   $.ajax({
 //     url: urlusuario,
@@ -159,7 +159,7 @@ function registrarUsuario() {
             text: "Su registro se guardó correctamente",
             icon: "success"
           });
-          // window.location.href= "http://127.0.0.1:5500/front_end/medicoRegistro.html";
+          // window.location.href= "http://192.168.140.176:5500/front_end/medicoRegistro.html";
         },
         error: function(error){
           Swal.fire("Error", "Error al guardar "+error.responseText, "error");
