@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
-            android:hint="Titulo"
+            android:hint="@string/lbltitulo"
             android:inputType="text" />
 
         <TextView
@@ -55,7 +55,7 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/lblGenero"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="@string/lblGenero" />
@@ -69,7 +69,7 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/lblNumeroDisponible"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="@string/lblNumeroDisponibles" />
@@ -83,7 +83,7 @@
             android:inputType="text" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/lblNumeroOcupado"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:text="@string/lblNumeroOcupados" />

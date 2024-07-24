@@ -11,13 +11,9 @@ import android.widget.EditText
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Request.Method
-import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
-import com.android.volley.toolbox.JsonRequest
-import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
-import com.google.gson.JsonObject
 import org.json.JSONObject
 import com.sena.crudlibrary.config.config
 import com.sena.crudlibrary.models.libro
@@ -46,9 +42,9 @@ class GuardarLibroFragment : Fragment() {
     private lateinit var isbn:EditText
     private lateinit var numero_disponible:EditText
     private lateinit var numero_ocupado:EditText
-    //de manera temporal se asigna un id
-    private var id:Int = 1
     private lateinit var btnGuardar:Button
+    //de manera temporal se asigna un id
+    private var id:Int = 2
 
     //metodo encargdo de traer la informacion de libro
     fun consultarLibro(){
@@ -62,7 +58,7 @@ class GuardarLibroFragment : Fragment() {
                     val gson = Gson()
                     val libro:libro = gson.fromJson(response.toString(), libro::class.java)
                     titulo.setText(response.getString("titulo"))
-                    autor.setText(response.getString("nombres"))
+                    autor.setText(response.getString("autor"))
                     isbn.setText(response.getInt("isbn").toString())
                     genero.setText(response.getString("genero"))
                     numero_disponible.setText(response.getInt("numero_disponible").toString())
@@ -78,6 +74,9 @@ class GuardarLibroFragment : Fragment() {
                     ).show()
                 }//error en la peticion
             )
+            val queue = Volley.newRequestQueue(context)
+            //
+            queue.add(request)
         }
     }
 
@@ -120,8 +119,31 @@ class GuardarLibroFragment : Fragment() {
                 val queue = Volley.newRequestQueue(context)
                 //
                 queue.add(request)
-            }else{
+            } else
+            {
+                val  parametros=JSONObject()
 
+                parametros.put("titulo",titulo.text.toString())
+                parametros.put("autor",autor.text.toString())
+                parametros.put("isbn",isbn.text.toString())
+                parametros.put("genero",genero.text.toString())
+                parametros.put("numero_disponible",numero_disponible.text.toString())
+                parametros.put("numero_ocupado",numero_ocupado.text.toString())
+
+                var request= JsonObjectRequest(
+                    Request.Method.PUT, //metodo
+                    config.urlLibro + id + "/", //ur
+                    parametros,//datos de la peticion
+                    {response->Toast.makeText( context,"se Actualizo correctamente", Toast.LENGTH_SHORT).show() },//cuando la respuesta es correcta
+
+                    {error->Toast.makeText(context, "se genero un error", Toast.LENGTH_LONG).show() }//cuando es incorrecta
+                )
+
+
+                // se crea la cola del trabajo
+                val queue=Volley.newRequestQueue(context)
+                // se añade la peticion
+                queue.add(request)
             }
         }catch (error:Exception){
 
@@ -147,7 +169,7 @@ class GuardarLibroFragment : Fragment() {
         autor=view.findViewById(R.id.autor)
         isbn=view.findViewById(R.id.isbn)
         genero=view.findViewById(R.id.genero)
-        numero_ocupado=view.findViewById(R.id.numero_ocupado)
+        numero_ocupado=view.findViewById(R.id.lblNumeroOcupado)
         numero_disponible=view.findViewById(R.id.numero_disponible)
         btnGuardar = view.findViewById(R.id.btnGuardar)
         btnGuardar.setOnClickListener(){guardarLibro()
