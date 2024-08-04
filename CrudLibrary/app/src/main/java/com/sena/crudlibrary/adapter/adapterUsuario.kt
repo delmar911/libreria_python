@@ -16,7 +16,7 @@ class adapterUsuario (
     var context: Context,
 
     ): RecyclerView.Adapter<adapterUsuario.MyHolder>() {
-    inner class MyHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MyHolder(itemViewUsuario: View) : RecyclerView.ViewHolder(itemViewUsuario) {
         /*
         Dentro de la clase MyHolder se crea las variables
         y se asocian los objetos de la vista item
@@ -27,15 +27,15 @@ class adapterUsuario (
         lateinit var btnEliminar: Button
 
         init {
-            lblNombres = itemView.findViewById(R.id.lblNombres)
-            lblCorreo = itemView.findViewById(R.id.lblCorreo)
-            btnEditar = itemView.findViewById(R.id.btnEditar)
-            btnEliminar = itemView.findViewById(R.id.btnEliminar)
+            lblNombres = itemViewUsuario.findViewById(R.id.lblNombres)
+            lblCorreo = itemViewUsuario.findViewById(R.id.lblCorreo)
+            btnEditar = itemViewUsuario.findViewById(R.id.btnEditar)
+            btnEliminar = itemViewUsuario.findViewById(R.id.btnEliminar)
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): adapterUsuario.MyHolder {
-        var itemView= LayoutInflater.from(context).inflate(R.layout.item_usuario,parent,false)
-        return MyHolder(itemView)
+        var itemViewUsuario= LayoutInflater.from(context).inflate(R.layout.item_usuario,parent,false)
+        return MyHolder(itemViewUsuario)
     }
     //variable que almacena la función onclick nuevo que puse
     var onclick:((JSONObject)->Unit)?=null
