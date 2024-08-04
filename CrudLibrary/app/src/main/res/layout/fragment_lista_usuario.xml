@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaLibroFragment">
+    tools:context=".ListaUsuarioFragment">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="205dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RVLibros"
+        <ListView
+            android:id="@+id/RVUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </ScrollView>

@@ -10,14 +10,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.android.volley.Request
-import com.android.volley.Request.Method
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.gson.Gson
-import org.json.JSONObject
 import com.sena.crudlibrary.config.config
-import com.sena.crudlibrary.models.libro
-import kotlin.Exception
+import com.sena.crudlibrary.models.Usuario
+import org.json.JSONObject
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,43 +24,36 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [GuardarLibroFragment.newInstance] factory method to
+ * Use the [GuardarUsuarioFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class GuardarLibroFragment : Fragment() {
+class GuardarUsuarioFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    //se defienen las variables del formaulario
-
-    private lateinit var titulo:EditText
-    private lateinit var autor:EditText
-    private lateinit var genero:EditText
-    private lateinit var isbn:EditText
-    private lateinit var numero_disponible:EditText
-    private lateinit var numero_ocupado:EditText
-    private lateinit var btnGuardar:Button
-    //de manera temporal se asigna un id
+    private lateinit var nombres:EditText
+    private lateinit var direccion:EditText
+    private lateinit var correo:EditText
+    private lateinit var tipoUsuario:EditText
+    private lateinit var btnGuardar: Button
     private var id:Int = 0
 
-    //metodo encargdo de traer la informacion de libro
-    fun consultarLibro(){
+    fun consultarUsuario(){
         if (id!=0){
             var request = JsonObjectRequest(
-                Method.GET,//metodo de la peticion
-                config.urlLibro+id+"/",//url
+                Request.Method.GET,//metodo de la peticion
+                config.urlUsuario+id+"/",//url
                 null, //parametros
                 {response->
                     //se convierte de json a objeto
                     val gson = Gson()
-                    val libro:libro = gson.fromJson(response.toString(), libro::class.java)
-                    titulo.setText(response.getString("titulo"))
-                    autor.setText(response.getString("autor"))
-                    isbn.setText(response.getInt("isbn").toString())
-                    genero.setText(response.getString("genero"))
-                    numero_disponible.setText(response.getInt("numero_disponible").toString())
-                    numero_ocupado.setText(response.getInt("numero_ocupado").toString())
+                    val usuario: Usuario = gson.fromJson(response.toString(), Usuario::class.java)
+                    nombres.setText(response.getString("nombres"))
+                    direccion.setText(response.getString("direccion"))
+                    correo.setText(response.getString("correo"))
+                    tipoUsuario.setText(response.getString("tipoUsuario"))
+
 
                 },//respuesta correcta
 
@@ -79,26 +70,19 @@ class GuardarLibroFragment : Fragment() {
             queue.add(request)
         }
     }
-
-    /*request es peticion q hace la api
-    StringRequest=responde un String
-    JsonRequest=responde un json
-     JsonArrayRequest=Responde un arreglo de json*/
-    fun guardarLibro(){
+    fun guardarUsuario(){
         try {
             if (id ==0){//se crea el libro
 
                 var parametros = JSONObject()
-                parametros.put("titulo", titulo.text.toString())
-                parametros.put("autor", autor.text.toString())
-                parametros.put("isbn", isbn.text.toString())
-                parametros.put("genero", genero.text.toString())
-                parametros.put("numero_disponible", numero_disponible.text.toString())
-                parametros.put("numero_ocupado", numero_ocupado.text.toString())
+                parametros.put("nombres", nombres.text.toString())
+                parametros.put("direccion", direccion.text.toString())
+                parametros.put("correo", correo.text.toString())
+                parametros.put("tipoUsuario", tipoUsuario.text.toString())
 
                 var request=JsonObjectRequest(
                     Request.Method.POST,//metodo
-                    config.urlLibro,
+                    config.urlUsuario,
                     parametros,//datos de la peticios
                     {response->
                         Toast.makeText(
@@ -121,18 +105,16 @@ class GuardarLibroFragment : Fragment() {
                 queue.add(request)
             }
             else{
-                val  parametros=JSONObject()
+                val  parametros= JSONObject()
 
-                parametros.put("titulo",titulo.text.toString())
-                parametros.put("autor",autor.text.toString())
-                parametros.put("isbn",isbn.text.toString())
-                parametros.put("genero",genero.text.toString())
-                parametros.put("numero_disponible",numero_disponible.text.toString())
-                parametros.put("numero_ocupado",numero_ocupado.text.toString())
+                parametros.put("nombres", nombres.text.toString())
+                parametros.put("direccion", direccion.text.toString())
+                parametros.put("correo", correo.text.toString())
+                parametros.put("tipoUsuario", tipoUsuario.text.toString())
 
                 var request= JsonObjectRequest(
                     Request.Method.PUT, //metodo
-                    config.urlLibro + id + "/", //ur
+                    config.urlUsuario + id + "/", //ur
                     parametros,//datos de la peticion
                     {response->Toast.makeText( context,"se Actualizo correctamente", Toast.LENGTH_SHORT).show() },//cuando la respuesta es correcta
 
@@ -150,6 +132,7 @@ class GuardarLibroFragment : Fragment() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -157,23 +140,21 @@ class GuardarLibroFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
     }
-
     @SuppressLint("MissingInflatedId")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        var view = inflater.inflate(R.layout.fragment_guardar_libro, container, false)
-        titulo=view.findViewById(R.id.titulo)
-        autor=view.findViewById(R.id.autor)
-        isbn=view.findViewById(R.id.isbn)
-        genero=view.findViewById(R.id.genero)
-        numero_ocupado=view.findViewById(R.id.numero_ocupado)
-        numero_disponible=view.findViewById(R.id.numero_disponible)
+        var view = inflater.inflate(R.layout.fragment_guardar_usuario, container, false)
+        nombres=view.findViewById(R.id.nombres)
+        direccion=view.findViewById(R.id.direccion)
+        correo=view.findViewById(R.id.correo)
+        tipoUsuario=view.findViewById(R.id.tipoUsuario)
         btnGuardar = view.findViewById(R.id.btnGuardar)
-        btnGuardar.setOnClickListener(){guardarLibro()
+        btnGuardar.setOnClickListener(){guardarUsuario()
         }
+
         //boton volver
         var btnVolver: Button = view.findViewById(R.id.btnVolver)
         btnVolver.setOnClickListener{
@@ -193,11 +174,11 @@ class GuardarLibroFragment : Fragment() {
         var btnLista: Button = view.findViewById(R.id.btnLista)
         btnLista.setOnClickListener {
             val fragmentManager = requireActivity().supportFragmentManager
-            var fragmentListalibro = ListaLibroFragment()
+            var fragmentListaUsuario = ListaUsuarioFragment()
 
             var transsaction = fragmentManager.beginTransaction()
             //reemplaza fragmento
-            transsaction.replace(R.id.fragmentContainerView, fragmentListalibro)
+            transsaction.replace(R.id.fragmentContainerView, fragmentListaUsuario)
 
             transsaction.addToBackStack(null)
             //confirma los cambios
@@ -205,12 +186,10 @@ class GuardarLibroFragment : Fragment() {
 
         }
 
-        consultarLibro()
-
-
+        consultarUsuario()
         return view
-
     }
+
 
 
     companion object {
@@ -220,12 +199,12 @@ class GuardarLibroFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment GuardarLibroFragment.
+         * @return A new instance of fragment GuardarUsuarioFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            GuardarLibroFragment().apply {
+            GuardarUsuarioFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

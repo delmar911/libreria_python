@@ -2,138 +2,122 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fragmantRegistroLibro"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GuardarLibroFragment">
+    tools:context=".GuardarPrestamoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="408dp"
-            android:layout_height="683dp"
+            android:layout_width="375dp"
+            android:layout_height="535dp"
             android:orientation="vertical"
-            android:padding="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.555"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.29">
 
             <LinearLayout
-                android:layout_width="118dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnVolver"
-                    android:layout_width="58dp"
+                    android:layout_width="74dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:backgroundTint="#00FF9800"
-                    android:textColor="#000000"
+                    android:backgroundTint="#00FFFFFF"
                     app:icon="@drawable/volver"
                     app:iconSize="30dp"
                     app:iconTint="#000000" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/lblTitulo"
+                android:id="@+id/lblFechaPrestamo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lbltitulo"
-                android:textSize="16sp" />
+                android:text="Fecha prestamo" />
 
             <EditText
-                android:id="@+id/titulo"
+                android:id="@+id/fecha_prestamo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text" />
 
             <TextView
-                android:id="@+id/lblAutor"
+                android:id="@+id/lblFechaDevolucion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lblAutor"
-                android:textSize="16sp" />
+                android:text="Fecha devolucion" />
 
             <EditText
-                android:id="@+id/autor"
+                android:id="@+id/editTextText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text" />
 
             <TextView
+                android:id="@+id/lblUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lblIsbn"
-                android:textSize="16sp" />
+                android:text="Usuario" />
 
             <EditText
-                android:id="@+id/isbn"
+                android:id="@+id/usuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text" />
 
             <TextView
-                android:id="@+id/lblGenero"
-                android:layout_width="wrap_content"
+                android:id="@+id/lblLibro"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lblGenero"
-                android:textSize="16sp" />
+                android:text="LIbro" />
 
             <EditText
-                android:id="@+id/genero"
+                android:id="@+id/libro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text" />
 
             <TextView
-                android:id="@+id/lblNumeroDisponible"
+                android:id="@+id/lblEstadoPrestamo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lblNumeroDisponibles"
-                android:textSize="16sp" />
+                android:text="Estado prestamo" />
 
             <EditText
-                android:id="@+id/numero_disponible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text" />
-
-            <TextView
-                android:id="@+id/lblNumeroOcupado"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/lblNumeroOcupados"
-                android:textSize="16sp" />
-
-            <EditText
-                android:id="@+id/numero_ocupado"
+                android:id="@+id/estado_prestamo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="text" />
 
             <LinearLayout
-                android:layout_width="350dp"
-                android:layout_height="79dp"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
                 android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/btnGuardar"
-                    android:layout_width="108dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="#FF9800"
                     android:text="Guardar"
-                    android:textColor="#020202"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
                     app:icon="@drawable/save_floppy_svgrepo_com"
                     app:iconSize="30dp"
                     app:iconTint="#000000" />
@@ -141,15 +125,15 @@
                 <Button
                     android:id="@+id/btnLista"
                     android:layout_width="wrap_content"
-                    android:layout_height="79dp"
+                    android:layout_height="63dp"
                     android:layout_weight="1"
                     android:backgroundTint="#FF9800"
                     android:text="Lista"
                     android:textColor="#000000"
+                    android:textSize="16sp"
                     app:icon="@drawable/list_svgrepo_com"
                     app:iconSize="30dp"
                     app:iconTint="#000000" />
-
             </LinearLayout>
 
         </LinearLayout>

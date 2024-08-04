@@ -5,16 +5,119 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#BD750B"
     tools:context=".MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.sena.crudlibrary.DetalleLibroFragment"
+        android:name="com.sena.crudlibrary.principal"
         android:layout_width="415dp"
-        android:layout_height="735dp"
+        android:layout_height="587dp"
+        android:backgroundTint="#CD9A00"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.586" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="417dp"
+        android:layout_height="71dp"
+        android:background="#FFEB3B"
+        android:backgroundTint="#FF9800"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:textColorLink="#008496"
+            app:icon="@drawable/home_angle_svgrepo_com"
+            app:iconGravity="start"
+            app:iconPadding="8dp"
+            app:iconSize="40dp"
+            app:iconTint="#000000" />
+
+        <Button
+            android:id="@+id/btnLibro"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            android:gravity="center"
+            app:icon="@drawable/book_svgrepo_com"
+            app:iconGravity="start"
+            app:iconSize="40dp"
+            app:iconTint="#070707" />
+
+        <Button
+            android:id="@+id/btnUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            app:icon="@drawable/user_svgrepo_com"
+            app:iconSize="40dp"
+            app:iconTint="#000000" />
+
+        <Button
+            android:id="@+id/btnPrestamo"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            app:icon="@drawable/loan_interest_time_value_of_money_effective_svgrepo_com"
+            app:iconSize="40dp"
+            app:iconTint="#000000" />
+
+        <Button
+            android:id="@+id/btnMulta"
+            android:layout_width="wrap_content"
+            android:layout_height="69dp"
+            android:layout_weight="1"
+            android:backgroundTint="#FF9800"
+            app:icon="@drawable/cash_payment_solid_svgrepo_com"
+            app:iconSize="40dp"
+            app:iconTint="#000000" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="382dp"
+        android:layout_height="86dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/fragmentContainerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.003">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="monospace"
+            android:gravity="bottom"
+            android:text="Libreria Yellow"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="159dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/libro_magico" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
